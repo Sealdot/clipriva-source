@@ -1,6 +1,6 @@
 # Single-maintainer ownership. Code owners must retain write access to this repository.
-* @sealdot404
-/src/ @sealdot404
-/src-tauri/ @sealdot404
-/docs/ @sealdot404
-/.github/ @sealdot404
+* @Sealdot
+/src/ @Sealdot
+/src-tauri/ @Sealdot
+/docs/ @Sealdot
+/.github/ @Sealdot
