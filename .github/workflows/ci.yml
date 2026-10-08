@@ -34,7 +34,47 @@ jobs:
         run: pnpm test
       - name: Build frontend
         run: pnpm build
+      - name: Collect locked target dependency evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence_dir="$RUNNER_TEMP/clipriva-source-evidence"
+          mkdir -p "$evidence_dir"
+          target="$(rustc -vV | sed -n 's/^host: //p')"
+          test -n "$target"
+          pnpm licenses list --json > "$RUNNER_TEMP/clipriva-node-licenses.json"
+          cargo metadata --manifest-path src-tauri/Cargo.toml --locked --all-features \
+            --filter-platform "$target" --format-version 1 > "$RUNNER_TEMP/clipriva-cargo-metadata.json"
+          python3 scripts/review-dependency-licenses.py \
+            --node-metadata "$RUNNER_TEMP/clipriva-node-licenses.json" \
+            --cargo-metadata "$RUNNER_TEMP/clipriva-cargo-metadata.json" \
+            --target "$target" --commit "$GITHUB_SHA" --output "$evidence_dir"
+          pnpm audit --prod --registry=https://registry.npmjs.org --json \
+            > "$evidence_dir/node-production-audit.json"
+          {
+            printf 'commit=%s\ntarget=%s\n' "$GITHUB_SHA" "$target"
+            node --version
+            pnpm --version
+            rustc --version
+            cargo --version
+            sw_vers
+            xcodebuild -version
+          } > "$evidence_dir/environment.txt"
       - name: Check Rust formatting and lint
-        run: pnpm lint:rust
+        run: |
+          cargo fmt --manifest-path src-tauri/Cargo.toml --check
+          cargo clippy --manifest-path src-tauri/Cargo.toml --locked --all-targets --all-features -- -D warnings
       - name: Run Rust tests
         run: pnpm test:rust
+      - name: Verify source tree remains clean
+        shell: bash
+        run: |
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+      - name: Upload portable source evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: source-evidence-${{ github.sha }}
+          path: ${{ runner.temp }}/clipriva-source-evidence/
+          if-no-files-found: warn
+          retention-days: 30
