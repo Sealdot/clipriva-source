@@ -1,0 +1,206 @@
+.filter-composer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--theme-overlay);
+  backdrop-filter: blur(8px);
+}
+
+.filter-composer-dialog {
+  width: min(880px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
+  overflow: auto;
+  padding: 20px;
+  color: var(--theme-text);
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 42%);
+}
+
+.filter-composer-dialog > header,
+.filter-composer-dialog > footer,
+.filter-composer-section-heading,
+.filter-composer-section-heading > div,
+.filter-composer-add-step,
+.filter-composer-preview-pane > div,
+.filter-composer-step-actions {
+  display: flex;
+  align-items: center;
+}
+
+.filter-composer-dialog > header,
+.filter-composer-dialog > footer,
+.filter-composer-section-heading,
+.filter-composer-preview-pane > div {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.filter-composer-dialog h2,
+.filter-composer-dialog p,
+.filter-composer-dialog pre {
+  margin: 0;
+}
+
+.filter-composer-section-heading span,
+.filter-composer-dialog small,
+.filter-composer-help {
+  color: var(--theme-muted);
+}
+
+.filter-composer-dialog > header span {
+  color: var(--theme-muted);
+}
+
+.filter-composer-name {
+  display: grid;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.filter-composer-name input,
+.filter-composer-dialog select {
+  min-height: 38px;
+  padding: 8px 10px;
+  color: inherit;
+  background: var(--theme-panel);
+  border: 1px solid var(--theme-border);
+  border-radius: 9px;
+}
+
+.filter-composer-workspace {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(320px, 1.1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.filter-composer-steps,
+.filter-composer-preview-pane {
+  padding: 14px;
+  background: var(--theme-panel);
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+}
+
+.filter-composer-section-heading > div {
+  gap: 8px;
+}
+
+.filter-composer-steps ol {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 14px 0;
+  list-style: none;
+}
+
+.filter-composer-steps li {
+  display: grid;
+  grid-template-columns: 24px minmax(130px, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+}
+
+.filter-composer-steps li[data-error="true"] {
+  border-color: var(--theme-danger);
+}
+
+.filter-composer-step-number {
+  color: var(--theme-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.filter-composer-add-step > label {
+  display: grid;
+  gap: 4px;
+}
+
+.filter-composer-steps li label,
+.filter-composer-steps li select {
+  width: 100%;
+}
+
+.filter-composer-step-actions {
+  gap: 4px;
+}
+
+.filter-composer-step-actions button {
+  min-width: 32px;
+}
+
+.filter-composer-add-step {
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.filter-composer-preview {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  min-height: 420px;
+}
+
+.filter-composer-preview-pane {
+  min-height: 0;
+}
+
+.filter-composer-preview-pane pre {
+  max-height: 160px;
+  overflow: auto;
+  margin-top: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.filter-composer-preview-pane[data-status="failed"] {
+  border-color: var(--theme-danger);
+}
+
+.filter-composer-preview-pane [role="alert"] {
+  margin-top: 12px;
+  color: var(--theme-danger);
+}
+
+.filter-composer-help,
+.filter-composer-dialog > [role="alert"] {
+  margin-top: 12px;
+}
+
+.filter-composer-dialog > footer {
+  margin-top: 18px;
+}
+
+.filter-composer-dialog > footer > div {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-composer-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .filter-composer-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-composer-preview {
+    min-height: 320px;
+  }
+}

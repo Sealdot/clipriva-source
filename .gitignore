@@ -1,0 +1,66 @@
+node_modules/
+dist/
+build/
+coverage/
+artifacts/
+.DS_Store
+Thumbs.db
+*.log
+logs/
+
+# Local environment configuration. Keep the documented, value-free template.
+.env
+.env.*
+!.env.example
+
+# Rust / Tauri
+target/
+src-tauri/target/
+src-tauri/gen/
+
+# Local application data and test databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Signing material and cloud-service credentials
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.mobileprovision
+credentials.json
+service-account*.json
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Local generated planning and QA workspaces
+docs/.next-version-*-build/
+docs/.user-story-build/
+docs/.user-story-*-build/
+docs/.user-story-qa/
+docs/.plan-review/
+docs/.qa/
+
+# Local historical Word exports and superseded planning inputs. Curated binary
+# documents already tracked by Git remain tracked; adding a new one requires an
+# explicit provenance review and `git add -f`.
+/ClipRiva-*.doc
+/ClipRiva-*.docx
+/ClipRiva-开源准备执行方案.md
+/docs/ClipRiva-*.doc
+/docs/ClipRiva-*.docx
+
+# IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp

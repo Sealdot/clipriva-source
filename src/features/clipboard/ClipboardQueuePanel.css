@@ -1,0 +1,165 @@
+.clipboard-queue-panel {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  padding: 14px;
+  color: var(--theme-text);
+  background: var(--theme-surface);
+}
+
+.clipboard-queue-panel > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.clipboard-queue-panel > header span,
+.clipboard-queue-panel small,
+.clipboard-queue-panel output,
+.clipboard-queue-empty {
+  color: var(--theme-muted);
+  font-size: 11px;
+}
+
+.clipboard-queue-panel h2,
+.clipboard-queue-panel p {
+  margin: 0;
+}
+
+.clipboard-queue-panel h2 {
+  font-size: 15px;
+}
+
+.clipboard-queue-order {
+  display: grid;
+  gap: 4px;
+  max-height: 248px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.clipboard-queue-order li {
+  display: grid;
+  min-height: 34px;
+  grid-template-columns: 20px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  border-radius: 7px;
+  padding: 0 8px;
+}
+
+.clipboard-queue-order li[data-current="true"] {
+  background: var(--theme-selected);
+}
+
+.clipboard-queue-order li[data-completed="true"],
+.clipboard-queue-order li[data-availability="unavailable"] {
+  opacity: 0.58;
+}
+
+.clipboard-queue-order strong {
+  overflow: hidden;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clipboard-stack-item-actions {
+  display: flex;
+  gap: 2px;
+}
+
+.clipboard-stack-item-actions button {
+  width: 26px;
+  min-height: 26px;
+  border: 0;
+  border-radius: 5px;
+  color: var(--theme-muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.clipboard-stack-item-actions button:hover:not(:disabled) {
+  color: var(--theme-text);
+  background: var(--theme-selected);
+}
+
+.clipboard-stack-item-actions button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.clipboard-queue-controls {
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--theme-border);
+  padding-top: 10px;
+}
+
+.clipboard-queue-controls > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.clipboard-queue-controls button,
+.clipboard-queue-reset {
+  min-height: 32px;
+  border: 1px solid var(--theme-border);
+  border-radius: 7px;
+  padding: 0 10px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.clipboard-queue-controls button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.clipboard-queue-reset {
+  justify-self: start;
+  color: var(--theme-muted);
+}
+
+.clipboard-queue-complete {
+  color: var(--theme-accent);
+  font-size: 12px;
+}
+
+.quick-paste-queue-drawer {
+  position: relative;
+  z-index: 15;
+  border-top: 1px solid var(--theme-border);
+  padding: 6px 14px;
+}
+
+.quick-paste-queue-drawer > button {
+  display: flex;
+  width: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  padding: 0;
+  color: var(--theme-muted);
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.quick-paste-queue-drawer > .clipboard-queue-panel {
+  position: absolute;
+  right: 12px;
+  bottom: calc(100% + 4px);
+  left: 12px;
+  max-height: min(430px, 64vh);
+  overflow: auto;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+}

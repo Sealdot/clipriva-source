@@ -1,0 +1,135 @@
+.clipboard-action-panel {
+  position: relative;
+  display: inline-flex;
+}
+
+.clipboard-action-menu {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 7px);
+  right: 0;
+  display: grid;
+  width: 238px;
+  gap: 2px;
+  border: 1px solid var(--theme-border);
+  border-radius: 10px;
+  padding: 6px;
+  color: var(--theme-text);
+  background: var(--theme-surface);
+  box-shadow: 0 18px 42px rgb(0 0 0 / 28%);
+}
+
+.clipboard-action-menu-section {
+  display: grid;
+  gap: 2px;
+}
+
+.clipboard-action-menu-section + .clipboard-action-menu-section {
+  margin-top: 4px;
+  border-top: 1px solid var(--theme-border);
+  padding-top: 4px;
+}
+
+.clipboard-action-menu button {
+  display: grid;
+  width: 100%;
+  min-height: 34px;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 7px;
+  padding: 0 8px;
+  color: var(--theme-text);
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: left;
+}
+
+.clipboard-action-menu button:hover,
+.clipboard-action-menu button:focus-visible,
+.clipboard-action-menu button[data-active="true"] {
+  color: var(--theme-accent);
+  background: var(--theme-selected);
+}
+
+.clipboard-action-menu button:focus-visible {
+  outline: 2px solid var(--theme-focus);
+  outline-offset: -1px;
+}
+
+.clipboard-action-menu button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.clipboard-action-menu kbd {
+  color: var(--theme-muted);
+  font:
+    9px ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.clipboard-action-menu .clipboard-action-danger {
+  color: var(--theme-danger);
+}
+
+.clipboard-action-confirmation {
+  display: grid;
+  gap: 8px;
+  padding: 7px;
+}
+
+.clipboard-action-confirmation strong {
+  color: var(--theme-danger);
+  font-size: 11px;
+}
+
+.clipboard-action-confirmation p {
+  margin: 0;
+  color: var(--theme-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.clipboard-action-confirmation > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.clipboard-action-confirmation > div button {
+  display: inline-flex;
+  width: auto;
+  min-height: 30px;
+  grid-template-columns: none;
+}
+
+.clipboard-action-confirmation .clipboard-action-confirm {
+  color: var(--theme-danger);
+  background: color-mix(in srgb, var(--theme-danger) 12%, var(--theme-surface));
+}
+
+.quick-paste-heading-actions .clipboard-action-menu {
+  top: calc(100% + 8px);
+}
+
+.quick-paste-shell {
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+}
+
+.quick-paste-item {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.quick-paste-footer .quick-paste-hints {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.clip-actions > .clipboard-action-panel .clipboard-action-menu {
+  top: calc(100% + 5px);
+}

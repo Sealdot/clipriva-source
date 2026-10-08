@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>ClipRiva</title>
+  <defs>
+    <linearGradient id="background" x1="72" y1="52" x2="440" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86F1C8"/>
+      <stop offset="1" stop-color="#2FC98F"/>
+    </linearGradient>
+  </defs>
+  <!-- Keep a 10% transparent optical safe area so macOS does not render the
+       mark materially larger than neighboring standard app icons. -->
+  <g transform="translate(51.2 51.2) scale(.8)">
+    <rect width="512" height="512" rx="120" fill="#0E1217"/>
+    <path d="M100 196c44-48 88-48 132 0s88 48 132 0 88-48 132 0" fill="none" stroke="url(#background)" stroke-width="46" stroke-linecap="round"/>
+    <path d="M100 316c44-48 88-48 132 0s88 48 132 0 88-48 132 0" fill="none" stroke="url(#background)" stroke-width="46" stroke-linecap="round"/>
+  </g>
+</svg>

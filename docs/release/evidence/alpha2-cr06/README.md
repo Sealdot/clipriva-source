@@ -1,0 +1,42 @@
+# CR-06 temporary Stack and local Filter evidence
+
+**Code commits:** `b12dc50ec48f3ea80ded6d09e1484ba86bbb1e24`, `f280e8fde9cf12a23e87e50d864335dd7d008f53`, and `f675dee` (local, unpushed). **Status:** Stack and Filter source contracts implemented; CR-06 stays open for native lifecycle, interaction and accessibility acceptance.
+
+## Delivery and locations
+
+- `src/features/clipboard/ClipboardQueuePanel.tsx`: the Stack says it is temporary, capped at 20 clips and cleared when ClipRiva quits. Its action now names the actual context: the main workspace uses “Copy & advance” and “Retry Copy”; Quick Paste uses “Direct Paste & advance”, “Retry Direct Paste”, and the explicit “Copy & advance” fallback after failure.
+- `src/app/App.tsx` and `src/features/clipboard/QuickPasteOverlay.tsx`: pass the actual activation mode. The main workspace failure message no longer suggests two equivalent copy actions.
+- `src/features/clipboard/ClipboardQueuePanel.test.tsx` and `QuickPasteOverlay.test.tsx`: confirm action routing and labels. Existing `src-tauri/src/clipboard_stack.rs` tests confirm process-memory reservation tokens and failure keeping the current Item; that native code was not changed here.
+- `src-tauri/src/commands.rs`, `lib.rs`, `src/features/clipboard/api.ts`, `browserRepository.ts`, and `QuickPasteOverlay.tsx`: resolve a queued active Item by its ID rather than searching only the currently visible Quick Paste results. The command returns `null` only for an absent/recycled/expired Item and reports database errors separately. A synthetic component test enqueues an Item, hides it with another search, then successfully activates it.
+- `src-tauri/src/actions.rs`, `db/mod.rs`, `commands.rs`, `lib.rs`, and the typed React/browser bridge: the Labs Filter command now has separate preview and confirm operations. Preview returns a bounded process-memory snapshot of the rule, Item ID/version, input and output without a clipboard or audit write. Confirm reloads the current rule and Item, recomputes the output, rejects a changed snapshot, writes the clipboard once, then records content-free audit. The legacy direct-apply command was removed. A post-write audit failure is reported as copied with audit failure so the UI does not invite a blind retry.
+- `src/features/clipboard/FilterResultDialog.tsx` and `.css`, `ClipboardActionsPanel.tsx`, `ClipboardInspector.tsx`, and `QuickPasteOverlay.tsx`: main and Quick Paste shortcuts open the same Before/After review. Copy requires an explicit button; Cancel and stale previews make no write. The dialog uses shared light/dark tokens and renders at the document root so a hidden Inspector cannot hide the result. The selected original History Item remains unchanged.
+- `src/app/App.test.tsx`, `src/features/clipboard/QuickPasteOverlay.test.tsx`, `browserRepository.test.ts`, and `src-tauri/src/db/mod.rs` tests: synthetic confirmation, cancel, changed-rule and Item-version rejection, content-free audit and original-content invariants. `PRIVACY.md`, `docs/privacy/data-flow.md` and `docs/open-source/module-boundary.md` record the updated local clipboard boundary.
+
+## Executed checks
+
+`$NODE` is the workspace-bundled Node.js executable returned by `load_workspace_dependencies`. These checks ran against the clean tree after the second code commit (`f280e8fde9cf12a23e87e50d864335dd7d008f53`); the first Stack-wording commit was checked after the initial evidence commit as well.
+
+| Command | Result |
+| --- | --- |
+| `$NODE node_modules/@biomejs/biome/bin/biome check .` | **passed**, exit 0; 94 files and four pre-existing broken `logs/soak` symlink warnings. |
+| `$NODE node_modules/typescript/bin/tsc -b --pretty false` | **passed**, exit 0. |
+| `$NODE node_modules/vitest/vitest.mjs run` | **passed**, exit 0 after the second code commit; 26 files / 229 tests. |
+| `$NODE node_modules/vite/bin/vite.js build` | **passed**, exit 0 after the second code commit; 520.12 kB JS chunk warning. |
+| `cargo fmt --manifest-path src-tauri/Cargo.toml --check` | **passed**, exit 0. |
+| `cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --all-features -- -D warnings` | **passed**, exit 0. |
+| `cargo test --manifest-path src-tauri/Cargo.toml --locked -q` | **passed**, exit 0; 239 passed / 1 pre-existing ignored benchmark. |
+
+For the Filter code tree `f675dee`, checks executed before the source commit: `pnpm lint` **passed** with four pre-existing broken `logs/soak` symlink warnings; `pnpm typecheck` **passed**; `pnpm test` **passed**, 26 files / 232 tests; `pnpm build` **passed** with a 524.72 kB JS chunk warning; `cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --all-features -- -D warnings` **passed**; `cargo test --manifest-path src-tauri/Cargo.toml --locked -q` **passed**, 240 / 1 ignored; `cargo fmt --manifest-path src-tauri/Cargo.toml --check` **passed** after formatting. The focused browser tests include the portal assertion found by screenshot inspection. Final clean-tree rerun and commit identity are reported in the task handoff.
+
+The first clean-tree Rust rerun at evidence commit `c7ad6a4` **failed**: 239 passed, one ignored, and `automation::server::tests::oversized_request_and_response_fail_with_bounded_codes` returned `InvalidRequest` instead of `OutputTooLarge`. The single test failed again in isolation. Its nonblocking listener could hand the connection to the frame reader before request bytes arrived; `src-tauri/src/automation/server.rs` now switches each accepted connection to blocking mode with the existing two-second read/write timeout before reading. This focused local-socket test-gate fix is commit `2473d09` (local, unpushed), separate from the Filter code. After the fix, the isolated test and full `cargo test --manifest-path src-tauri/Cargo.toml --locked -q` **passed** (240 / 1 ignored); `cargo fmt --check` and `cargo clippy --all-targets --all-features -- -D warnings` also **passed**. No automation permission or protocol capability changed. The final clean-tree gate is repeated after the evidence commit.
+
+## Screenshot, limits and risks
+
+- [Quick Paste Stack](screenshots/stack-browser-mock.png) shows the updated temporary-state and Direct Paste labels in a 600×454 synthetic React preview. Captured at 1× from local Vite in headless Chrome after adding the in-repository synthetic code Item to Stack. This is **browser-mock** evidence, not native acceptance. The image uses repository UI and dependency icons; no external asset or live clipboard content was added.
+- [Filter Before/After](screenshots/filter-preview-browser-mock.png) shows the main History Item and explicit Copy Filter result button at 1280×800, 1×, in local Vite/headless Chrome. It uses the in-repository synthetic code Item, with Labs enabled only in that browser fixture. The first capture exposed the dialog being hidden under a narrow Inspector; rendering it at the document root fixed that layout. This image is **browser-mock**, not native acceptance. It contains repository UI and existing dependency icons only.
+- Native restart/quit proves Stack memory-only lifetime, failed target-app paste and retry, and AX/keyboard behavior are **blocked/not_run**. Existing Rust unit tests exercise the state-machine contract but are not a native target-app observation.
+- Native Filter copy, stale rule/Item races, actual clipboard contents, Quick Paste focus/IME, VoiceOver/focus trap, light/dark contrast on every secondary surface and failure messaging are **blocked/not_run**. The browser adapter and Rust database tests cannot substitute for the native UI/clipboard observation. A rule or Item could change between the database recheck and the OS clipboard write; the operation is short, but that cross-boundary interval is not atomic. The hidden-by-query Stack failure is fixed. No Stack persistence was introduced.
+
+## Impact and rollback
+
+No permission, network, stored-data type, dependency, migration, encryption or Local Link behavior changed. The single-Item IPC lookup and Filter preview expose local data only to the existing webview; no external destination was added. Clipboard writes now require explicit Filter confirmation and audit remains content-free. Privacy docs were updated; security boundary tests passed; license impact is none. Screenshot provenance is above. Rollback: revert `f675dee`, `f280e8fde9cf12a23e87e50d864335dd7d008f53` and `b12dc50ec48f3ea80ded6d09e1484ba86bbb1e24` after checking later CR dependencies.

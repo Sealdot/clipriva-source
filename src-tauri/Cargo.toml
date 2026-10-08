@@ -1,0 +1,48 @@
+[package]
+name = "clipriva"
+version = "2.0.0-alpha.1"
+description = "ClipRiva desktop runtime"
+authors = ["Sealdot404"]
+edition = "2021"
+rust-version = "1.85"
+
+[lib]
+name = "clipriva_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+chrono = { version = "0.4", features = ["serde"] }
+mdns-sd = { version = "0.20.3", default-features = false, features = ["async"] }
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+snow = "0.10.0"
+subtle = "2.6"
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-clipboard-manager = "2"
+thiserror = "2"
+tokio = { version = "1", features = ["time"] }
+uuid = { version = "1", features = ["v4"] }
+x25519-dalek = { version = "2", features = ["static_secrets"] }
+zeroize = "1.8"
+
+[target."cfg(not(any(target_os = \"android\", target_os = \"ios\")))".dependencies]
+tauri-plugin-global-shortcut = "2.3.2"
+tauri-plugin-autostart = "2.5.1"
+
+[target."cfg(target_os = \"macos\")".dependencies]
+block2 = "0.6.2"
+objc2 = "0.6.4"
+objc2-app-kit = "0.3.2"
+objc2-foundation = "0.3.2"
+objc2-vision = { version = "0.3.2", default-features = false, features = [
+  "VNObservation",
+  "VNRecognizeTextRequest",
+  "VNRequest",
+  "VNRequestHandler",
+] }
+security-framework = "3.7.0"

@@ -1,0 +1,246 @@
+/* Shared surface and control tokens. The window follows the macOS appearance. */
+:root {
+  color-scheme: dark;
+  --theme-background: #15191d;
+  --theme-surface: #1d2329;
+  --theme-panel: #242c33;
+  --theme-border: #3a4650;
+  --theme-text: #f2f5f6;
+  --theme-muted: #a6b2bc;
+  --theme-accent: #72d6b6;
+  --theme-selected: #243d35;
+  --theme-on-accent: #102019;
+  --theme-warning: #f0bc6a;
+  --theme-danger: #ffb4ab;
+  --theme-focus: #72d6b6;
+  --theme-overlay: rgb(0 0 0 / 62%);
+  --surface: var(--theme-surface);
+  --surface-raised: var(--theme-panel);
+  --surface-hover: var(--theme-panel);
+  --line: var(--theme-border);
+  --line-bright: var(--theme-border);
+  --muted: var(--theme-muted);
+  --subtle: var(--theme-muted);
+  --accent: var(--theme-accent);
+  --accent-strong: var(--theme-accent);
+  --accent-dim: var(--theme-selected);
+  --danger: var(--theme-danger);
+}
+
+body,
+html[data-window-mode="quick-paste"],
+html[data-window-mode="quick-paste"] body,
+html[data-window-mode="quick-paste"] #root {
+  color: var(--theme-text);
+  background: var(--theme-background);
+}
+
+.quick-paste-shell,
+.sidebar,
+.topbar,
+.settings-dialog,
+.onboarding-dialog,
+.inspector {
+  color: var(--theme-text);
+  background: var(--theme-surface);
+}
+
+.quick-paste-shell {
+  border-color: var(--theme-border);
+}
+
+.quick-search,
+.search-box,
+.content-preview,
+.settings-deny-list textarea {
+  border-color: var(--theme-border);
+  background: var(--theme-background);
+}
+
+.settings-grid input,
+.settings-grid select,
+.settings-deny-list textarea {
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+  background: var(--theme-background);
+}
+
+.quick-search input,
+.search-box input,
+.quick-paste-item pre,
+.clip-content,
+.content-preview pre,
+.quick-paste-state strong,
+.quick-paste-feedback strong,
+.settings-toggle strong {
+  color: var(--theme-text);
+}
+
+.quick-paste-item[data-selected="true"],
+.clip-card[data-selected="true"],
+.workspace-nav-item[aria-current="page"] {
+  background: var(--theme-selected);
+}
+
+.clip-card,
+.settings-data-note,
+.action-result {
+  background: var(--theme-panel);
+}
+
+.app-shell,
+.workspace,
+.workspace-grid,
+.history-pane {
+  color: var(--theme-text);
+  background: var(--theme-background);
+}
+
+.stable-inspector,
+.stable-inspector > .inspector {
+  color: var(--theme-text);
+  background: var(--theme-surface);
+}
+
+.stable-inspector {
+  border-color: var(--theme-border);
+}
+
+.stable-inspector h2,
+.stable-inspector .metadata-grid dd,
+.stable-inspector .storage-explanation strong {
+  color: var(--theme-text);
+}
+
+.stable-inspector .clip-tags-editor {
+  border-color: var(--theme-border);
+  background: var(--theme-panel);
+}
+
+.quick-paste-feedback,
+.settings-save-error {
+  color: var(--theme-danger);
+}
+
+.quick-search:focus-within,
+.search-box:focus-within {
+  border-color: var(--theme-focus);
+  box-shadow: 0 0 0 2px var(--theme-focus);
+}
+
+button:focus-visible,
+[role="menuitem"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--theme-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --theme-background: #f5f6f7;
+    --theme-surface: #ffffff;
+    --theme-panel: #f0f2f4;
+    --theme-border: #dce1e5;
+    --theme-text: #18222c;
+    --theme-muted: #5c6670;
+    --theme-accent: #167d68;
+    --theme-selected: #e4f3ed;
+    --theme-on-accent: #ffffff;
+    --theme-warning: #9c5b00;
+    --theme-danger: #b42318;
+    --theme-focus: #167d68;
+    --theme-overlay: rgb(24 34 44 / 30%);
+  }
+
+  .quick-paste-item mark {
+    color: var(--theme-text);
+    background: var(--theme-selected);
+  }
+
+  .quick-search input::placeholder,
+  .search-box input::placeholder,
+  .quick-paste-item-meta,
+  .clip-card-meta,
+  .quick-paste-state span,
+  .quick-paste-footer,
+  .settings-intro,
+  .settings-toggle small {
+    color: var(--theme-muted);
+  }
+
+  .quick-search kbd,
+  .quick-paste-footer kbd,
+  .search-box kbd,
+  .kind-icon,
+  .icon-button:hover,
+  .clip-action-menu,
+  .search-mode-toggle,
+  .settings-data-note code {
+    color: var(--theme-muted);
+    border-color: var(--theme-border);
+    background: var(--theme-panel);
+  }
+
+  .quick-paste-failure-reason,
+  .settings-section-title,
+  .onboarding-title,
+  .onboarding-dialog li,
+  .clip-card-meta span:first-child,
+  .search-scope,
+  .local-status strong,
+  .quick-paste-title,
+  .quick-paste-heading {
+    color: var(--theme-text);
+  }
+
+  .nav-item:hover:not(:disabled),
+  .nav-item[data-active="true"],
+  .workspace-nav-item[aria-current="page"],
+  .search-mode-toggle button[aria-pressed="true"] {
+    color: var(--theme-accent);
+    background: var(--theme-selected);
+  }
+
+  .clip-card:hover,
+  .clip-card[data-bulk-selected="true"] {
+    background: var(--theme-selected);
+  }
+
+  .settings-backdrop {
+    background: var(--theme-overlay);
+  }
+
+  .onboarding-backdrop {
+    background: var(--theme-overlay);
+  }
+
+  .workspace-primary-nav {
+    background: var(--theme-panel);
+  }
+
+  .icon-button.primary,
+  .inspector-copy-action,
+  .settings-save {
+    color: var(--theme-on-accent);
+    background: var(--theme-accent);
+  }
+
+  .copy-result-toast {
+    color: var(--theme-text);
+    background: var(--theme-selected);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-paste-item,
+  .quick-search,
+  .clip-card,
+  .search-box,
+  .icon-button,
+  .clip-actions {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+}

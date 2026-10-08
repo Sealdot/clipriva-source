@@ -1,0 +1,98 @@
+name: Bug report
+description: Report a reproducible ClipRiva problem without sensitive clipboard data.
+title: "[Bug]: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include clipboard contents, credentials, personal paths, account identifiers, or unredacted logs. For security issues, use the private process in SECURITY.md instead.
+  - type: input
+    id: version
+    attributes:
+      label: ClipRiva version or commit
+      placeholder: "0.1.0 or abc1234"
+    validations:
+      required: true
+  - type: dropdown
+    id: macos
+    attributes:
+      label: macOS version
+      options:
+        - macOS Ventura 13
+        - macOS Sonoma 14
+        - macOS Sequoia 15
+        - macOS Tahoe 26
+        - Other (please describe below)
+    validations:
+      required: true
+  - type: dropdown
+    id: architecture
+    attributes:
+      label: Mac architecture
+      options:
+        - Apple Silicon (arm64)
+        - Intel (x86_64)
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: installation
+    attributes:
+      label: Installation method
+      placeholder: "Source build, unsigned local bundle, or future release channel"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem without reproducing private clipboard content.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs or screenshots
+      description: Remove clipboard content, paths, filenames, account identifiers, tokens, and personal data before attaching anything.
+  - type: dropdown
+    id: reproducible
+    attributes:
+      label: Can you reproduce this consistently?
+      options:
+        - "Yes"
+        - "No"
+        - "Not sure"
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy review
+      options:
+        - label: I removed sensitive or private data from this report.
+          required: true
+        - label: This report may involve privacy-sensitive behavior but is not a security vulnerability.
+          required: false

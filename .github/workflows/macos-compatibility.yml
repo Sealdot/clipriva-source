@@ -1,0 +1,77 @@
+name: macOS compatibility
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/macos-compatibility.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "rust-toolchain.toml"
+      - "src/**"
+      - "src-tauri/**"
+      - "vite.config.ts"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/macos-compatibility.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "rust-toolchain.toml"
+      - "src/**"
+      - "src-tauri/**"
+      - "vite.config.ts"
+  workflow_dispatch:
+
+concurrency:
+  group: macos-compatibility-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  native-build:
+    name: ${{ matrix.label }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: Sonoma 14 / Apple Silicon
+            runner: macos-14
+            architecture: arm64
+          - label: Sequoia 15 / Apple Silicon
+            runner: macos-15
+            architecture: arm64
+          - label: Tahoe 26 / Apple Silicon
+            runner: macos-26
+            architecture: arm64
+          - label: Sequoia 15 / Intel
+            runner: macos-15-intel
+            architecture: x86_64
+          - label: Tahoe 26 / Intel
+            runner: macos-26-intel
+            architecture: x86_64
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "13.0"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build frontend
+        run: pnpm build
+      - name: Build native application
+        run: cargo build --manifest-path src-tauri/Cargo.toml --locked --bin clipriva
+      - name: Verify native architecture and deployment target
+        env:
+          EXPECTED_ARCHITECTURE: ${{ matrix.architecture }}
+        run: scripts/verify-macos-native-build.sh

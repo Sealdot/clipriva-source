@@ -1,0 +1,55 @@
+name: Feature request
+description: Propose an improvement that fits ClipRiva's local-first Core.
+title: "[Feature]: "
+labels: [enhancement, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the roadmap and existing issues first. ClipRiva Core does not require an account, cloud service, or network connection.
+  - type: textarea
+    id: scenario
+    attributes:
+      label: User scenario
+      description: Who needs this and what are they trying to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Current problem
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired result
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: true
+  - type: dropdown
+    id: core-fit
+    attributes:
+      label: Does this fit the local-first Core boundary?
+      options:
+        - "Yes — it works without an account or network connection"
+        - "Unsure — please discuss"
+        - "No — it needs a separate product-layer discussion"
+    validations:
+      required: true
+  - type: dropdown
+    id: participation
+    attributes:
+      label: Would you like to help implement or test it?
+      options:
+        - "I can help implement"
+        - "I can help test"
+        - "I cannot help at this time"
+        - "Not sure"
+    validations:
+      required: true
