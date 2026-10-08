@@ -7,6 +7,22 @@
 - **Purpose:** release-preparation evidence for the lockfiles; not legal advice and not a
   substitute for an artifact-specific notice review.
 
+## 2026-10-08 private target review
+
+The [private runner verification](source-ci-verification-2026-10-08.md) supplies fresh
+current-platform pnpm license metadata (127 components) and the reachable all-features
+`aarch64-apple-darwin` Cargo target graph (317 registry components). No manifest, direct
+dependency or lockfile changes in this round. Original license expressions and the 23
+Cargo legacy slash-to-OR normalizations remain inspectable in portable runner evidence.
+The corrected target review has no missing, restricted-without-alternative or unsupported
+declaration in that scope; exact final commit results and lockfile hashes are in the handoff.
+
+This does not refresh the unselected platform graphs. The historical 518-crate table below
+and the earlier 127-entry Node metadata count must not be described as a new all-platform
+pass: the current Node lockfile has 227 package entries, of which the target review covers
+127. The source candidate still requires exact binary NOTICE review and a separate Rust
+vulnerability scan before a future binary release.
+
 ## Inputs and reproducible commands
 
 The committed [`pnpm-lock.yaml`](../../pnpm-lock.yaml) and

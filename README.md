@@ -20,11 +20,14 @@ queue, automatic retry or automatic history sync.
 
 > Project status: `2.0.0-alpha.1` Smart Workflows is a frozen, local source-review candidate.
 > This candidate has not been publicly pushed or published. There is no stable or publicly
-> distributed macOS app. Rust lint/tests, clean native build, real-two-Mac Local Link, signing,
-> notarization and real-device distribution gates remain open. macOS 13 or newer is the target.
+> distributed macOS app. Source checks run in private CI; the accompanying handoff records
+> results for the exact candidate commit. Native UI/installation, real-two-Mac Local Link,
+> signing, notarization and real-device distribution remain unverified. macOS 13+ is the target.
 
-The [current source-candidate audit](docs/audit/source-candidate-2026-10-08.md) records the
-allow-listed export, independent history and remaining gaps. The
+The [private runner verification](docs/audit/source-ci-verification-2026-10-08.md) records the
+source-check contract, target dependency review and remaining gaps. The
+[initial export audit](docs/audit/source-candidate-2026-10-08.md) records the allow-listed
+export and independent root history. The
 [earlier audit](docs/audit/public-source-audit-2026-09-30.md) describes the private lineage.
 Binary release requirements are separate.
 

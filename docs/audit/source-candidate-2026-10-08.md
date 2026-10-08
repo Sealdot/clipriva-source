@@ -1,4 +1,8 @@
-# Frozen source-review candidate — 2026-10-08
+# Initial local source-review candidate — 2026-10-08
+> Historical first local export/check round. The follow-up
+> [private runner verification](source-ci-verification-2026-10-08.md) supersedes its local-only
+> push status and native/target-license evidence gaps. Preserve this record as evidence for
+> the initial root commit, not the final verification commit.
 
 This is a local, reviewable source-publication candidate for `2.0.0-alpha.1`. It is not a
 public repository, a tag, a release, an installer or a Local Link approval. Feature work is

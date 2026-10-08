@@ -69,3 +69,12 @@
 No direct dependency has a GPL, AGPL, SSPL, Commons Clause, non-commercial, or source-unavailable
 license according to the installed package/crate metadata reviewed for this inventory. Recheck when
 the lockfiles change.
+
+## Private source CI tooling (2026-10-08)
+
+No direct product dependency changes in this verification round. The existing GitHub CI
+workflow additionally uses `actions/upload-artifact` v4.6.2, pinned to
+`ea165f8d65b6e75b540449e92b4886f43607fa02`; its upstream license is MIT. It stores only
+portable source-check evidence for 30 days and is not bundled in ClipRiva. The target
+metadata coverage and remaining all-platform/binary obligations are in
+[source-ci-verification-2026-10-08.md](source-ci-verification-2026-10-08.md).

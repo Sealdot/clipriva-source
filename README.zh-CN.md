@@ -8,9 +8,9 @@ ClipRiva Core 是完整的离线产品。可选的 **ClipRiva Labs** 是默认�
 
 **Local Link v1.5 Release Candidate** 是独立、默认关闭的同局域网文本交接能力。用户显式启用后才启动原生 Bonjour/TCP 服务；Noise 认证配对要求两台 Mac 同时确认安全码，每条收到的文本仍需接收方选择 Copy、Save 或 Reject。待决正文只在原生内存保留最多 60 秒。单元、浏览器、环回或单 Mac 测试不能作为双 Mac 证据；在完成真实双机 50 次配对 / 200 条传输与隐私复核前仍为公开发布 No-Go。它没有账号、云中继、离线正文队列、自动重试或自动历史同步。
 
-> 项目状态：`2.0.0-alpha.1` Smart Workflows 已冻结为本地源码审阅候选；本候选未公开推送或发布。目前没有稳定版或公开分发的 macOS 安装包。Rust lint/测试、干净原生构建、Local Link 双真机、签名、公证和真机分发门槛仍未关闭。目标平台为 macOS 13 及更高版本。
+> 项目状态：`2.0.0-alpha.1` Smart Workflows 已冻结为本地源码审阅候选；本候选未公开推送或发布。目前没有稳定版或公开分发的 macOS 安装包。源码检查在私有 CI 执行，随附交付记录提供确切候选提交的结果。原生 UI/安装、Local Link 双真机、签名、公证和真机分发仍未验证。目标平台为 macOS 13 及更高版本。
 
-[本次源码候选审计](docs/audit/source-candidate-2026-10-08.md)记录了白名单导出、独立历史与剩余缺口。[此前审计](docs/audit/public-source-audit-2026-09-30.md)描述原私有历史；应用安装包另按发布清单验收。
+[私有 runner 验证记录](docs/audit/source-ci-verification-2026-10-08.md)记录了源码检查约定、目标依赖许可复核和剩余缺口。[首次导出审计](docs/audit/source-candidate-2026-10-08.md)记录了白名单导出与独立根历史。[此前审计](docs/audit/public-source-audit-2026-09-30.md)描述原私有历史；应用安装包另按发布清单验收。
 
 ## 它解决什么问题
 

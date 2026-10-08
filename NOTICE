@@ -11,6 +11,6 @@ ClipRiva names, logos, icons and documentation screenshots remain subject to
 TRADEMARK.md and the existing project asset policy. This notice does not grant
 additional branding rights or certify an official binary distribution.
 
-The 2026-10-08 candidate changes source-review documentation and packaging only.
+The 2026-10-08 candidate changes source-review documentation, packaging and CI evidence tooling only.
 It omits historical Office planning documents and editor configuration and starts
 an independent root commit without copying the private repository's history.

@@ -67,3 +67,13 @@ The archive includes project source, documentation, project-owned UI screenshots
 renditions. It contains no installed Node/Rust dependency source, runtime database, clipboard
 export or application bundle. [NOTICE](NOTICE) preserves project attribution; downstream
 binary packaging must still collect the licenses and NOTICE files of actual bundled components.
+
+## Private runner verification follow-up
+
+The source verification branch adds project-authored CI metadata tooling, not third-party
+vendor source or a product dependency. The workflow uses the MIT-licensed upstream
+`actions/upload-artifact` v4.6.2 pinned to
+`ea165f8d65b6e75b540449e92b4886f43607fa02` as development tooling only. Icons, screenshots,
+project branding, manifests and lockfiles are unchanged. Fresh target-license evidence and
+remaining binary notice obligations are documented in
+[the private runner verification](docs/audit/source-ci-verification-2026-10-08.md).
