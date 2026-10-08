@@ -106,12 +106,20 @@ def review(rows):
     restricted = []
     alternatives = []
     unsupported = []
+    legacy = []
     for row in rows:
         label = row["name"] + "@" + row["version"]
         value = row["license"]
         if not value or value.lower() in {"unknown", "unlicensed", "none"}:
             missing.append(label)
             continue
+        # Cargo retained slash-separated alternatives from its pre-SPDX syntax.
+        # Normalize only a pure list of identifiers; retain the original declaration.
+        # https://doc.rust-lang.org/cargo/reference/manifest.html#the-license-and-license-file-fields
+        if re.fullmatch(r"[A-Za-z0-9.+-]+(?:\s*/\s*[A-Za-z0-9.+-]+)+", value):
+            value = re.sub(r"\s*/\s*", " OR ", value)
+            row["normalized_license"] = value
+            legacy.append(label)
         try:
             if restriction(value):
                 restricted.append(label)
@@ -120,7 +128,8 @@ def review(rows):
         except ValueError:
             unsupported.append(label)
     return {"components": len(rows), "missing": missing, "restricted_without_unrestricted_alternative": restricted,
-            "restricted_mentions_with_alternative": alternatives, "unsupported_expressions": unsupported, "packages": rows}
+            "restricted_mentions_with_alternative": alternatives, "unsupported_expressions": unsupported,
+            "legacy_syntax_normalizations": legacy, "packages": rows}
 
 
 def main():
