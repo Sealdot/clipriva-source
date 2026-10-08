@@ -33,7 +33,10 @@ entries, unknown informational warnings, target-reachable unsoundness and regist
 
 Preflight database `b8a1a33e246a0a9a3b5f377248c41a503defec74` reports zero vulnerability
 entries, six unmaintained warnings and one unsound warning. Local yanked-registry queries timed
-out, so the local scan is incomplete for that part; final runner evidence is required before release.
+out, so the local scan is incomplete for that part. The pre-publication private
+[staging run](https://github.com/Sealdot/clipriva/actions/runs/37735788766) completed the
+license and RustSec gates without registry-query errors. Final public runner evidence is still
+required before release; only aggregate decisions/provenance are uploaded publicly, not raw findings.
 
 | Warning | Target assessment and decision |
 | --- | --- |

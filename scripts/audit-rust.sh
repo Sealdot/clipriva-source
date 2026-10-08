@@ -19,6 +19,7 @@ git clone --depth 1 https://github.com/RustSec/advisory-db.git "$tool_dir/adviso
   printf 'tool_sha256=%s\n' "$digest"
   printf 'database_commit=%s\n' "$(git -C "$tool_dir/advisory-db" rev-parse HEAD)"
 } > "$evidence/rust-audit-provenance.txt"
+# Raw findings remain temporary; publish only the reviewed aggregate and provenance.
 "$tool_dir/$asset/cargo-audit" audit --file src-tauri/Cargo.lock \
-  --db "$tool_dir/advisory-db" --no-fetch --json > "$evidence/rust-audit.json" 2> "$evidence/rust-audit-errors.txt"
-python3 scripts/review-rust-advisories.py "$evidence"
+  --db "$tool_dir/advisory-db" --no-fetch --json > "$tool_dir/rust-audit.json" 2> "$tool_dir/rust-audit-errors.txt"
+python3 scripts/review-rust-advisories.py "$evidence" "$tool_dir"

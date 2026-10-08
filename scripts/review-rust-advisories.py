@@ -7,12 +7,13 @@ import sys
 
 def main():
     folder = Path(sys.argv[1])
-    audit = json.loads((folder / "rust-audit.json").read_text())
+    raw = Path(sys.argv[2])
+    audit = json.loads((raw / "rust-audit.json").read_text())
     licenses = json.loads((folder / "dependency-licenses.json").read_text())
     reachable = {(p["name"], p["version"]) for p in licenses["rust"]["packages"]}
     assert audit["vulnerabilities"]["count"] == 0 and not audit["vulnerabilities"]["found"]
     # cargo-audit can return success despite registry timeouts: incomplete is not a pass.
-    assert "error:" not in (folder / "rust-audit-errors.txt").read_text().lower()
+    assert "error:" not in (raw / "rust-audit-errors.txt").read_text().lower()
     reviewed = {"RUSTSEC-2024-0370", "RUSTSEC-2025-0081", "RUSTSEC-2025-0075",
                 "RUSTSEC-2025-0080", "RUSTSEC-2025-0100", "RUSTSEC-2025-0098"}
     decisions = []

@@ -1,5 +1,11 @@
 # Clean-environment verification
 
+> 2026-10-08 source preview: clean runner dependency installation and source tests are distinct
+> from application installation. See [the public preview record](source-public-preview-2026-10-08.md)
+> and exact Release CI evidence. Native installation and historical binary gates below remain
+> unverified; no installer is published.
+
+
 - **Run date:** 2026-08-09
 - **Frozen source candidate:** `cfa2ead91bffb90bcd754e5c6356590b26cf2f0a` (`1.5.0`)
 - **Status:** Passed for the requested clean source, browser-start, performance and unsigned-bundle
