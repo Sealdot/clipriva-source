@@ -3,7 +3,7 @@
 This roadmap describes direction, not a fixed delivery commitment. Scope and timing may change based
 on user feedback and project resources.
 
-## Current source candidate — 2.0.0-alpha.1
+## Current frozen source development preview — 2.0.0-alpha.1
 
 - Local text, image, RTF/HTML, and local file-reference history.
 - Search, pinning, retention, recycle bin, safe restore, and optional direct paste.

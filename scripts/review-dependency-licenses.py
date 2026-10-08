@@ -144,7 +144,7 @@ def main():
     cargo = review(cargo_components(json.loads(args.cargo_metadata.read_text())))
     args.output.mkdir(parents=True, exist_ok=True)
     result = {"commit": args.commit, "target": args.target, "cargo_features": "all", "scope":
-              "Current-platform pnpm installed metadata and reachable Cargo host-target graph, including build/test dependencies; not all-platform or a binary notice audit.",
+              "Current-platform pnpm installed metadata and reachable Cargo " + args.target + " graph, including build/test dependencies; not a binary notice audit.",
               "lockfile_sha256": {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in
                                   [Path("pnpm-lock.yaml"), Path("src-tauri/Cargo.lock")]}, "node": node, "rust": cargo}
     (args.output / "dependency-licenses.json").write_text(json.dumps(result, indent=2) + "\n")

@@ -3,6 +3,12 @@
 This checklist prepares a release; it does not authorize publication by itself. Do not publish an
 unsigned, unnotarized, or unverified artifact as an official stable macOS release.
 
+The separately authorized 2026-10-08 source development preview publishes only committed source
+in `Sealdot/clipriva-source`. Applicable source gates, exact CI evidence and deferred binary gates
+are described in [the preview record](../audit/source-public-preview-2026-10-08.md).
+Source publication does not waive installation, two-Mac, signing or notarization requirements
+for a future application release.
+
 ## Scope and version
 
 - [ ] Confirm the release owner (Sealdot404) and the target version.

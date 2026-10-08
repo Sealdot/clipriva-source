@@ -14,22 +14,23 @@ remote service.
 enable starts the native Bonjour/TCP service; authenticated Noise pairing requires both Macs to
 confirm the same safety code, and every received text still requires Copy, Save or Reject. Pending
 text stays in native memory for at most 60 seconds. Unit, browser, loopback and single-Mac tests are
-not two-Mac evidence, so the feature remains a No-Go for public release until the 50-pairing /
+not two-Mac evidence, so the feature remains a No-Go for binary distribution or validated real-device use until the 50-pairing /
 200-transfer real-Mac gate and privacy review pass. It has no account, cloud relay, offline body
 queue, automatic retry or automatic history sync.
 
-> Project status: `2.0.0-alpha.1` Smart Workflows is a frozen, local source-review candidate.
-> This candidate has not been publicly pushed or published. There is no stable or publicly
-> distributed macOS app. Source checks run in private CI; the accompanying handoff records
-> results for the exact candidate commit. Native UI/installation, real-two-Mac Local Link,
-> signing, notarization and real-device distribution remain unverified. macOS 13+ is the target.
+> Project status: `2.0.0-alpha.1` is a frozen **source development preview** in
+> [Sealdot/clipriva-source](https://github.com/Sealdot/clipriva-source). Source-only prereleases
+> contain no installer or application binary. CI and downloaded-source verification are
+> commit-specific evidence, linked from each Release. Native UI/installation, real-two-Mac
+> Local Link, signing, notarization and real-device acceptance remain unverified. macOS 13+
+> is the target; the verified runner is macOS 14 on Apple Silicon.
 
-The [private runner verification](docs/audit/source-ci-verification-2026-10-08.md) records the
-source-check contract, target dependency review and remaining gaps. The
-[initial export audit](docs/audit/source-candidate-2026-10-08.md) records the allow-listed
-export and independent root history. The
-[earlier audit](docs/audit/public-source-audit-2026-09-30.md) describes the private lineage.
-Binary release requirements are separate.
+Read the [public source preview record](docs/audit/source-public-preview-2026-10-08.md)
+for security warnings, reproduction and remaining gates. The
+[private runner record](docs/audit/source-ci-verification-2026-10-08.md) and
+[initial export audit](docs/audit/source-candidate-2026-10-08.md) are historical evidence.
+The public repository has independent allow-listed history and contains no old private history.
+Binary release requirements are separate; publishing source does not validate Local Link.
 
 ## Why ClipRiva
 
@@ -120,12 +121,12 @@ pnpm release:bundle:unsigned
 The bundle is written to `src-tauri/target/release/bundle/macos/ClipRiva.app`. Because it is unsigned,
 it is intended for local development rather than public redistribution.
 
-The [project repository](https://github.com/Sealdot/clipriva) and
-[issue tracker](https://github.com/Sealdot/clipriva/issues) are project references; their public
-availability has not been verified for this candidate. Review the supplied source archive locally.
-No GitHub Release or installer is currently endorsed. A future authorized signed release must
-provide download links, checksums and supported macOS versions. Report vulnerabilities privately
-as described in [SECURITY.md](SECURITY.md).
+Get source from the [repository](https://github.com/Sealdot/clipriva-source) or its
+[source-only prereleases](https://github.com/Sealdot/clipriva-source/releases).
+Verify `SHA256SUMS` before extraction and follow the
+[reproduction instructions](docs/audit/source-public-preview-2026-10-08.md).
+Use the [issue tracker](https://github.com/Sealdot/clipriva-source/issues) for ordinary bugs;
+report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
 
 ## Screenshots
 

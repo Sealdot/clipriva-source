@@ -1,5 +1,15 @@
 # SBOM and transitive-license review
 
+## Public source preview rerun (2026-10-08)
+
+The preview based on `b4ec2fe` adds `Apache-2.0` to both project manifests, without changing
+direct dependencies or either lockfile. CI reruns installed-platform Node license metadata and
+both macOS target and all-platform locked/all-feature Cargo metadata. Portable reports list
+each component license, missing/unsupported/restricted findings, legacy slash normalizations and
+lockfile digests. Exact final commit/run are in the Release evidence; historical counts below
+are not substituted for a current run. Node optional packages for other platforms and binary
+notices remain separate coverage. See [the public preview record](source-public-preview-2026-10-08.md).
+
 - **Review date:** 2026-08-23
 - **Source baseline:** the `codex/clipriva-2.0-smart-workflows` candidate commit containing this
   review; its manifest and lockfile diff changes only ClipRiva's own version from `1.5.0` to

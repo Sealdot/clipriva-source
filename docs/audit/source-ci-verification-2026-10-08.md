@@ -1,5 +1,9 @@
 # Private runner source verification — 2026-10-08
 
+> Historical evidence. Current source-publication status and scope are in
+> [the public preview record](source-public-preview-2026-10-08.md).
+
+
 The frozen `2.0.0-alpha.1` source candidate is verified on the private repository's
 `codex/source-candidate-ci-2026-10-08` branch through manual dispatch of the existing
 [CI workflow](../../.github/workflows/ci.yml). This authorization covers the verification

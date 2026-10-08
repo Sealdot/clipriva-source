@@ -1,4 +1,8 @@
 # Initial local source-review candidate — 2026-10-08
+
+> Historical evidence. Current source-publication status and scope are in
+> [the public preview record](source-public-preview-2026-10-08.md).
+
 > Historical first local export/check round. The follow-up
 > [private runner verification](source-ci-verification-2026-10-08.md) supersedes its local-only
 > push status and native/target-license evidence gaps. Preserve this record as evidence for

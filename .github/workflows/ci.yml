@@ -5,6 +5,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Optional source prerelease tag to download and verify before installation
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -13,10 +18,16 @@ jobs:
   verify:
     name: Verify macOS build
     runs-on: macos-14
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Check out source
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Verify and restore downloaded Release source
+        if: inputs.release_tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: python3 scripts/verify-release-source.py
       - name: Set up pnpm
         uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
       - name: Set up Node.js
@@ -30,6 +41,8 @@ jobs:
         run: pnpm lint
       - name: Check TypeScript
         run: pnpm typecheck
+      - name: Check source version agreement
+        run: node scripts/check-release-version.mjs
       - name: Run frontend tests
         run: pnpm test
       - name: Build frontend
@@ -49,6 +62,12 @@ jobs:
             --node-metadata "$RUNNER_TEMP/clipriva-node-licenses.json" \
             --cargo-metadata "$RUNNER_TEMP/clipriva-cargo-metadata.json" \
             --target "$target" --commit "$GITHUB_SHA" --output "$evidence_dir"
+          cargo metadata --manifest-path src-tauri/Cargo.toml --locked --all-features \
+            --format-version 1 > "$RUNNER_TEMP/clipriva-cargo-all-metadata.json"
+          python3 scripts/review-dependency-licenses.py \
+            --node-metadata "$RUNNER_TEMP/clipriva-node-licenses.json" \
+            --cargo-metadata "$RUNNER_TEMP/clipriva-cargo-all-metadata.json" \
+            --target all-platforms --commit "$GITHUB_SHA" --output "$evidence_dir/all-platforms"
           pnpm audit --prod --registry=https://registry.npmjs.org --json \
             > "$evidence_dir/node-production-audit.json"
           {
@@ -60,6 +79,8 @@ jobs:
             sw_vers
             xcodebuild -version
           } > "$evidence_dir/environment.txt"
+      - name: Audit Rust lockfile against RustSec
+        run: bash scripts/audit-rust.sh
       - name: Check Rust formatting and lint
         run: |
           cargo fmt --manifest-path src-tauri/Cargo.toml --check

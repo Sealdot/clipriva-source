@@ -6,6 +6,14 @@ All notable changes to ClipRiva are documented in this file. The format follows
 
 ## [Unreleased]
 
+## [2.0.0-alpha.1 source preview] - 2026-10-08
+
+Frozen source development preview based on `b4ec2fe`, with independent allow-listed history.
+Public source is hosted in `Sealdot/clipriva-source`; no installer is released. Apache-2.0
+manifest metadata, RustSec warning review and downloaded-Release source verification are added.
+Application behavior, dependency versions, lockfiles, test assertions and assets are unchanged.
+Two-Mac Local Link, native acceptance and signing/notarization remain deferred.
+
 ### Added
 
 - Smart Collections with bounded local rules and explicitly opened, searchable local notes.

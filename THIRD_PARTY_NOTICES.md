@@ -1,5 +1,11 @@
 # Third-party notices
 
+The public source preview adds no vendored code or asset. CI uses upstream `cargo-audit` 0.22.2
+(MIT OR Apache-2.0), verified by pinned release-asset SHA-256, and RustSec advisory data
+(CC0-1.0). These are downloaded development tools/data, not shipped application dependencies.
+Their exact provenance is recorded with CI evidence. Package manifests now explicitly declare
+the project Apache-2.0 code license. Existing asset ownership and brand constraints remain.
+
 This source-distribution notice lists known direct dependencies; `pnpm-lock.yaml` and
 `src-tauri/Cargo.lock` contain the full resolved dependency graphs. Binary distribution requires
 an artifact-specific review of bundled licenses and notices.

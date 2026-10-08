@@ -1,5 +1,9 @@
 # Public source audit — 2026-09-30
 
+> Historical evidence. Current source-publication status and scope are in
+> [the public preview record](source-public-preview-2026-10-08.md).
+
+
 This review is for making the GitHub source repository visible. It does not approve an installer,
 GitHub Release, tag, signed artifact, or promotion of Local Link beyond Preview/Alpha. The
 [macOS release checklist](../release/release-checklist.md) still governs binary distribution.

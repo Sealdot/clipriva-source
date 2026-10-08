@@ -24,7 +24,8 @@ Do not open a public issue for a vulnerability that may:
 - replace, corrupt or redirect an app-owned blob so unverified content is restored;
 - place plaintext, keys, device identity or endpoints in logs/diagnostics.
 
-Report privately through GitHub Security Advisories for this repository or by email to
+Report privately through [GitHub private vulnerability reporting](https://github.com/Sealdot/clipriva-source/security/advisories/new)
+for the public source repository or by email to
 `sealdot404@gmail.com`.
 
 Do not include real clipboard content, credentials, Keychain values, private/public identity keys,

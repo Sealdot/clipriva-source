@@ -6,11 +6,11 @@ ClipRiva 是面向 macOS 的本地优先剪贴板历史工具。Core 可在无�
 
 ClipRiva Core 是完整的离线产品。可选的 **ClipRiva Labs** 是默认关闭的本地实验功能，不会向远程服务发送剪贴板内容。
 
-**Local Link v1.5 Release Candidate** 是独立、默认关闭的同局域网文本交接能力。用户显式启用后才启动原生 Bonjour/TCP 服务；Noise 认证配对要求两台 Mac 同时确认安全码，每条收到的文本仍需接收方选择 Copy、Save 或 Reject。待决正文只在原生内存保留最多 60 秒。单元、浏览器、环回或单 Mac 测试不能作为双 Mac 证据；在完成真实双机 50 次配对 / 200 条传输与隐私复核前仍为公开发布 No-Go。它没有账号、云中继、离线正文队列、自动重试或自动历史同步。
+**Local Link v1.5 Release Candidate** 是独立、默认关闭的同局域网文本交接能力。用户显式启用后才启动原生 Bonjour/TCP 服务；Noise 认证配对要求两台 Mac 同时确认安全码，每条收到的文本仍需接收方选择 Copy、Save 或 Reject。待决正文只在原生内存保留最多 60 秒。单元、浏览器、环回或单 Mac 测试不能作为双 Mac 证据；在完成真实双机 50 次配对 / 200 条传输与隐私复核前仍为安装包分发和真机使用验收 No-Go。它没有账号、云中继、离线正文队列、自动重试或自动历史同步。
 
-> 项目状态：`2.0.0-alpha.1` Smart Workflows 已冻结为本地源码审阅候选；本候选未公开推送或发布。目前没有稳定版或公开分发的 macOS 安装包。源码检查在私有 CI 执行，随附交付记录提供确切候选提交的结果。原生 UI/安装、Local Link 双真机、签名、公证和真机分发仍未验证。目标平台为 macOS 13 及更高版本。
+> 项目状态：`2.0.0-alpha.1` 已冻结为[公开源码开发预览](https://github.com/Sealdot/clipriva-source)。源码 prerelease 不含安装包或应用二进制。每个 Release 链接确切提交的 CI 与下载源码验证证据。原生 UI/安装、Local Link 双真机、签名、公证和真人验收仍未验证。目标为 macOS 13+；已验证 runner 为 Apple Silicon 上的 macOS 14。
 
-[私有 runner 验证记录](docs/audit/source-ci-verification-2026-10-08.md)记录了源码检查约定、目标依赖许可复核和剩余缺口。[首次导出审计](docs/audit/source-candidate-2026-10-08.md)记录了白名单导出与独立根历史。[此前审计](docs/audit/public-source-audit-2026-09-30.md)描述原私有历史；应用安装包另按发布清单验收。
+[公开源码预览记录](docs/audit/source-public-preview-2026-10-08.md)说明安全警告、复现步骤和剩余门槛。[私有 runner 记录](docs/audit/source-ci-verification-2026-10-08.md)与[首次导出审计](docs/audit/source-candidate-2026-10-08.md)保留为历史证据。公开仓库使用白名单导出的独立历史，不含旧私有历史。源码公开不构成 Local Link 验收；应用安装包另按发布清单验收。
 
 ## 它解决什么问题
 
@@ -82,7 +82,7 @@ pnpm release:bundle:unsigned
 
 应用包会生成在 `src-tauri/target/release/bundle/macos/ClipRiva.app`。它未签名，仅用于本地开发，不能作为公开分发包。
 
-[项目仓库](https://github.com/Sealdot/clipriva)与[问题跟踪器](https://github.com/Sealdot/clipriva/issues)仅作为项目引用，本轮未核验其公开可访问性。请在本地审阅随附源码包。目前没有认可的 GitHub Release 或安装包；未来经授权的签名版本必须提供下载地址、校验值和支持的 macOS 版本。安全漏洞请按 [SECURITY.md](SECURITY.md) 私密报告。
+从[公开仓库](https://github.com/Sealdot/clipriva-source)或[仅含源码的 prerelease](https://github.com/Sealdot/clipriva-source/releases)下载源码。解压前核对 `SHA256SUMS`，按[复现记录](docs/audit/source-public-preview-2026-10-08.md)安装锁定依赖与运行检查。普通问题可使用[问题跟踪器](https://github.com/Sealdot/clipriva-source/issues)；安全漏洞请按 [SECURITY.md](SECURITY.md) 私密报告。
 
 ## 截图
 

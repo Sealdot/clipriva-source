@@ -1,5 +1,10 @@
 # Dependency and license inventory
 
+Public source preview (2026-10-08): no direct product dependency or resolved version changes.
+Manifest changes add project license metadata only. `cargo-audit` 0.22.2 (MIT OR Apache-2.0)
+and RustSec advisory data (CC0-1.0) are downloaded CI tooling, not product dependencies.
+See [the public preview record](source-public-preview-2026-10-08.md).
+
 - **Assessment date:** 2026-08-12
 - **Scope:** direct dependencies resolved by `pnpm-lock.yaml` and `src-tauri/Cargo.lock`. The lock
   files remain the authoritative transitive dependency set. This inventory is not legal advice.
