@@ -1,5 +1,9 @@
 # Dependency and license inventory
 
+JSDOM update (2026-10-09, PR #11): the development/test environment resolves to 30.1.2
+(MIT) with its updated DOM/CSS/HTTP graph. Node is pinned to 24.15.0 to satisfy its engine
+requirements. See the [fresh license, runtime and security review](jsdom-30.1.2-review-2026-10-09.md).
+
 Vitest update (2026-10-09, PR #9): the development/test runner now resolves to 5.0.3
 (MIT) with its updated test-tool graph. See the [migration review, fresh license evidence
 and remaining security findings](vitest-5.0.3-review-2026-10-09.md).
@@ -42,7 +46,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `@types/react` | 19.2.17 | React types | MIT | Yes, development | Low |
 | `@types/react-dom` | 19.2.3 | React DOM types | MIT | Yes, development | Low |
 | `@vitejs/plugin-react` | 6.0.4 | Vite React integration | MIT | Yes, development | Low |
-| `jsdom` | 29.1.1 | Browser-like test environment | MIT | Yes, development | Low |
+| `jsdom` | 30.1.2 | Browser-like test environment | MIT | Yes, development | Low |
 | `typescript` | 7.0.2 | Type checking | Apache-2.0 | Yes, development | Low |
 | `vite` | 8.3.2 | Frontend development/build | MIT | Yes, development | Low |
 | `vitest` | 5.0.3 | Test runner | MIT | Yes, development | Low |

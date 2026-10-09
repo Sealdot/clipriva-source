@@ -1,0 +1,30 @@
+{
+  "dependency_source_commit": "3516947b9a3b4f9755f825d7ed021a9edacee77c",
+  "pinned_node": "24.15.0",
+  "project_node_range": "^24.15.0 || >=26.0.0",
+  "jsdom_node_range": "^22.22.2 || ^24.15.0 || >=26.0.0",
+  "package_manager": "pnpm@11.9.0",
+  "configuration": {
+    "file": "pnpm-workspace.yaml",
+    "engineStrict": true
+  },
+  "unsupported_install_probe": {
+    "node": "24.14.0",
+    "command": "pnpm install --offline --frozen-lockfile --ignore-scripts",
+    "expected_exit": "nonzero",
+    "observed_exit": 1,
+    "error_code": "ERR_PNPM_UNSUPPORTED_ENGINE"
+  },
+  "supported_fresh_install": {
+    "node": "24.15.0",
+    "command": "pnpm install --frozen-lockfile --ignore-scripts --registry=https://registry.npmjs.org",
+    "observed_exit": 0
+  },
+  "local_node_archive": {
+    "source": "https://nodejs.org/dist/v24.15.0/node-v24.15.0-darwin-arm64.tar.gz",
+    "checksums_source": "https://nodejs.org/dist/v24.15.0/SHASUMS256.txt",
+    "sha256": "372331b969779ab5d15b949884fc6eaf88d5afe87bde8ba881d6400b9100ffc4",
+    "matches_official_checksum": true
+  },
+  "scope": "Install compatibility evidence; does not establish runtime compatibility for every Node version permitted by the manifest."
+}

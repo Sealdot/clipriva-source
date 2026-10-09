@@ -1,5 +1,18 @@
 # SBOM and transitive-license review
 
+## JSDOM 30.1.2 rerun (2026-10-09)
+
+[The PR #11 review](jsdom-30.1.2-review-2026-10-09.md) records fresh installed Node
+(115 components), macOS ARM64 Rust (317 registry components) and all-platform Rust
+(518 registry components) license evidence. All reviewed graphs have zero missing,
+unsupported or restricted-without-permissive-alternative declarations. The 22 new/updated
+npm versions declare MIT, MIT-0, BSD-2-Clause or BlueOak-1.0.0 and match public registry
+integrity values. Rust dependencies are unchanged; both all-platform `r-efi` entries retain
+permissive alternatives to LGPL. Full npm audit removes all 16 baseline package-advisory
+entries (including four high severity entries); full and production-only scopes now report
+zero findings. Node 24.15.0 and strict pnpm engine validation replace the unsupported
+24.14.0 pin. See the focused review for inspectable evidence and remaining release limits.
+
 ## Vitest 5.0.3 rerun (2026-10-09)
 
 [The PR #9 review](vitest-5.0.3-review-2026-10-09.md) records fresh installed Node
