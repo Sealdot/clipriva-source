@@ -1,0 +1,665 @@
+{
+  "review_date": "2026-10-09",
+  "scope": "Public npm registry audit of the locked Node graph; development/test dependencies included. This is not a Rust or embedded-binary scan.",
+  "dependency_source_commit": "03faa2ca709d6ccf89d2814c5ed80980a091b8df",
+  "baseline_commit": "b37c2255e3fe3c49038478cf54e47c7087fe509f",
+  "lockfile_sha256": "8dc8ca42969c0f432ef656f1cf34168b8e096b19b63c0370d9ff3e5bbcd38dc9",
+  "production_vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "candidate_severity_counts": {
+    "info": 0,
+    "low": 3,
+    "moderate": 11,
+    "high": 4,
+    "critical": 0
+  },
+  "baseline_severity_counts": {
+    "info": 0,
+    "low": 3,
+    "moderate": 11,
+    "high": 4,
+    "critical": 0
+  },
+  "candidate_findings": [
+    {
+      "package": "@vitest/mocker",
+      "severity": "moderate",
+      "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+      "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+      "vulnerable_versions": ">=2.1.0 <4.1.11",
+      "patched_versions": ">=4.1.11",
+      "findings": [
+        {
+          "version": "4.1.10",
+          "paths": [".>vitest>@vitest/mocker"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "source-map-js",
+      "severity": "high",
+      "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+      "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+      "vulnerable_versions": ">=1.0.0 <1.2.2",
+      "patched_versions": ">=1.2.2",
+      "findings": [
+        {
+          "version": "1.2.1",
+          "paths": [
+            ".>jsdom>@asamuzakjp/dom-selector>css-tree>source-map-js",
+            ".>jsdom>@bramus/specificity>css-tree>source-map-js",
+            ".>jsdom>@csstools/css-syntax-patches-for-csstree>css-tree>source-map-js",
+            ".>jsdom>css-tree>source-map-js",
+            ".>vitest>jsdom>@asamuzakjp/dom-selector>css-tree>source-map-js",
+            ".>vitest>jsdom>@bramus/specificity>css-tree>source-map-js",
+            ".>vitest>jsdom>@csstools/css-syntax-patches-for-csstree>css-tree>source-map-js",
+            ".>vitest>jsdom>css-tree>source-map-js"
+          ],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to response truncation via oversized chunked responses in the dump interceptor",
+      "url": "https://github.com/advisories/GHSA-2gqq-gqf2-x968",
+      "vulnerable_versions": ">=7.1.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
+      "url": "https://github.com/advisories/GHSA-2jfj-6hjv-fm6j",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "url": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
+      "vulnerable_versions": ">=7.28.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
+      "url": "https://github.com/advisories/GHSA-3xpg-4rpp-hhhm",
+      "vulnerable_versions": ">=7.15.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to cross-user information disclosure and parse-time crash via degenerate private cache directives",
+      "url": "https://github.com/advisories/GHSA-4cwx-7wf7-3272",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to caching and replay of unsafe HTTP method responses",
+      "url": "https://github.com/advisories/GHSA-8436-99hf-9mmv",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+      "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cross-user information disclosure via whitespace around equals in Cache-Control directives",
+      "url": "https://github.com/advisories/GHSA-jr45-8vmc-qm54",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+      "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+      "url": "https://github.com/advisories/GHSA-pmjh-fq2x-6v4x",
+      "vulnerable_versions": ">=7.11.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to downstream response splitting via retry interceptor",
+      "url": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via WebSocketStream unclean close",
+      "url": "https://github.com/advisories/GHSA-rx4f-c7p8-82vq",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+      "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+      "url": "https://github.com/advisories/GHSA-w293-vg96-wgc3",
+      "vulnerable_versions": ">=7.24.1 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "vitest",
+      "severity": "moderate",
+      "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+      "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+      "vulnerable_versions": ">=2.1.0 <4.1.11",
+      "patched_versions": ">=4.1.11",
+      "findings": [
+        {
+          "version": "4.1.10",
+          "paths": [".>vitest"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    }
+  ],
+  "baseline_findings": [
+    {
+      "package": "@vitest/mocker",
+      "severity": "moderate",
+      "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+      "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+      "vulnerable_versions": ">=2.1.0 <4.1.11",
+      "patched_versions": ">=4.1.11",
+      "findings": [
+        {
+          "version": "4.1.10",
+          "paths": [".>vitest>@vitest/mocker"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "source-map-js",
+      "severity": "high",
+      "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+      "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+      "vulnerable_versions": ">=1.0.0 <1.2.2",
+      "patched_versions": ">=1.2.2",
+      "findings": [
+        {
+          "version": "1.2.1",
+          "paths": [
+            ".>jsdom>@asamuzakjp/dom-selector>css-tree>source-map-js",
+            ".>jsdom>@bramus/specificity>css-tree>source-map-js",
+            ".>jsdom>@csstools/css-syntax-patches-for-csstree>css-tree>source-map-js",
+            ".>jsdom>css-tree>source-map-js",
+            ".>vitest>jsdom>@asamuzakjp/dom-selector>css-tree>source-map-js",
+            ".>vitest>jsdom>@bramus/specificity>css-tree>source-map-js",
+            ".>vitest>jsdom>@csstools/css-syntax-patches-for-csstree>css-tree>source-map-js",
+            ".>vitest>jsdom>css-tree>source-map-js"
+          ],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to response truncation via oversized chunked responses in the dump interceptor",
+      "url": "https://github.com/advisories/GHSA-2gqq-gqf2-x968",
+      "vulnerable_versions": ">=7.1.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
+      "url": "https://github.com/advisories/GHSA-2jfj-6hjv-fm6j",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "url": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
+      "vulnerable_versions": ">=7.28.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
+      "url": "https://github.com/advisories/GHSA-3xpg-4rpp-hhhm",
+      "vulnerable_versions": ">=7.15.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to cross-user information disclosure and parse-time crash via degenerate private cache directives",
+      "url": "https://github.com/advisories/GHSA-4cwx-7wf7-3272",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to caching and replay of unsafe HTTP method responses",
+      "url": "https://github.com/advisories/GHSA-8436-99hf-9mmv",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+      "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cross-user information disclosure via whitespace around equals in Cache-Control directives",
+      "url": "https://github.com/advisories/GHSA-jr45-8vmc-qm54",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+      "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+      "url": "https://github.com/advisories/GHSA-pmjh-fq2x-6v4x",
+      "vulnerable_versions": ">=7.11.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to downstream response splitting via retry interceptor",
+      "url": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via WebSocketStream unclean close",
+      "url": "https://github.com/advisories/GHSA-rx4f-c7p8-82vq",
+      "vulnerable_versions": ">=7.0.0 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+      "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm",
+      "vulnerable_versions": ">=7.0.0 <7.29.0",
+      "patched_versions": ">=7.29.0",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+      "url": "https://github.com/advisories/GHSA-w293-vg96-wgc3",
+      "vulnerable_versions": ">=7.24.1 <7.29.1",
+      "patched_versions": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.28.0",
+          "paths": [".>jsdom>undici", ".>vitest>jsdom>undici"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "package": "vitest",
+      "severity": "moderate",
+      "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+      "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+      "vulnerable_versions": ">=2.1.0 <4.1.11",
+      "patched_versions": ">=4.1.11",
+      "findings": [
+        {
+          "version": "4.1.10",
+          "paths": [".>vitest"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    }
+  ],
+  "new_affected_package_version_advisory_tuples": [],
+  "removed_affected_package_version_advisory_tuples": [],
+  "all_dependency_audit_passed": false
+}
