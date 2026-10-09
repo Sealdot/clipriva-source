@@ -111,7 +111,10 @@ python3 scripts/review-dependency-licenses.py --node-metadata "$review_dir/node.
 python3 scripts/review-dependency-licenses.py --node-metadata "$review_dir/node.json" \
   --cargo-metadata "$review_dir/cargo-all.json" --target all-platforms \
   --commit "$(git rev-parse HEAD)" --output "$review_dir/all-platforms"
-pnpm check
+pnpm lint
+pnpm typecheck
+pnpm test --maxWorkers=1
+pnpm build
 node scripts/check-release-version.mjs
 cargo fmt --manifest-path src-tauri/Cargo.toml --check
 pnpm audit --prod --registry=https://registry.npmjs.org --json
@@ -133,7 +136,11 @@ Final clean-commit checks include the install guard, supported install, lint, Ty
 all frontend tests, production build, version agreement, Rust formatting and fresh license
 evidence comparison. CI supplies native Rust lint/tests, release benchmarks, RustSec review
 and five macOS build combinations. Local native compilation is omitted to limit disk use.
-The existing frontend chunk-size warning remains separate build output.
+The existing frontend chunk-size warning remains separate build output. The first local
+default-parallel test run hit five 5-second timeouts (232 passed); rerunning the three
+affected files with one worker passed all 70 tests. The complete local suite is therefore
+run with `--maxWorkers=1`, preserving all assertions and timeout limits. Final CI runs the
+unchanged default-parallel command independently; both results must be checked before merge.
 
 This updates a test environment and the development runtime contract. It changes no
 application network route, telemetry, stored data type or OS permission. Real-device/WebKit
