@@ -65,7 +65,9 @@ Local Link stays separate and default off, starting Bonjour/TCP only after expli
 PRIVACY, data-flow and module-boundary documents still describe the unchanged runtime boundary.
 GitHub CI downloads development dependencies/advisory data; it handles synthetic tests and source,
 not user clipboard history. Security reporting belongs to the new repository's private advisory
-channel or the maintainer contact in SECURITY.md.
+channel or the maintainer contact in SECURITY.md. Public repository checks found that the
+historical CODEOWNERS handle did not exist; it is corrected to verified repository administrator
+`@Sealdot`. This affects source review ownership only.
 
 ## Reproduce
 
