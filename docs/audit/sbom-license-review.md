@@ -1,5 +1,18 @@
 # SBOM and transitive-license review
 
+## Vitest 5.0.3 rerun (2026-10-09)
+
+[The PR #9 review](vitest-5.0.3-review-2026-10-09.md) records fresh installed Node
+(119 components), macOS ARM64 Rust (317 registry components) and all-platform Rust
+(518 registry components) license evidence. All reviewed graphs have zero missing,
+unsupported or restricted-without-permissive-alternative declarations. All 14 new/updated
+locked npm versions declare MIT and match registry integrity. The Rust lockfile is unchanged;
+both all-platform `r-efi` entries retain permissive alternatives to LGPL. Full npm audit
+findings decrease from 18 to 16 package-advisory entries, removing the old Vitest/mocker
+redirect-mock entries, with no new affected package/version/advisory tuple. Four existing
+high severity development/test entries remain; production-only audit has zero findings.
+The focused review records migration decisions and remaining release coverage.
+
 ## React Testing Library 16.3.3 rerun (2026-10-09)
 
 [The PR #13 review](react-testing-library-16.3.3-review-2026-10-09.md) records fresh Node
