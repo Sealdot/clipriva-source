@@ -1,5 +1,18 @@
 # SBOM and transitive-license review
 
+## React Testing Library 16.3.3 rerun (2026-10-09)
+
+[The PR #13 review](react-testing-library-16.3.3-review-2026-10-09.md) records fresh Node
+(129 installed components), macOS ARM64 Rust (317 registry components) and all-platform
+Rust (518 registry components) license metadata. All reviewed graphs have zero missing,
+unsupported or restricted-without-permissive-alternative declarations. The updated test
+library declares MIT and matches its locked registry integrity. Peer and transitive versions
+are unchanged. The reports retain both all-platform `r-efi` permissive alternatives and
+legacy expression normalizations. Full npm security findings remain unchanged from main:
+18 package-advisory entries, including four high severity entries in development/test
+dependencies; the production-only scope has zero findings. See the review for inspectable
+evidence, commands and release-coverage limits.
+
 ## Vite 8.3.2 rerun (2026-10-09)
 
 [The PR #14 review](vite-8.3.2-review-2026-10-09.md) records fresh installed-platform Node
