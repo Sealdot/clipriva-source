@@ -1,5 +1,16 @@
 # SBOM and transitive-license review
 
+## Vite 8.3.2 rerun (2026-10-09)
+
+[The PR #14 review](vite-8.3.2-review-2026-10-09.md) records fresh installed-platform Node
+(129 components), macOS ARM64 Rust (317 components) and all-platform Rust (518 components)
+license metadata. No missing, unsupported or restricted-without-permissive-alternative
+declaration was found. All 22 added/updated npm versions were separately checked against
+registry declarations and locked integrity values. The review also records the failing
+full npm audit: existing development/test findings decrease from 20 to 18 (high: 5 to 4),
+without new affected package/version/advisory tuples. Production-only npm audit remains zero.
+This is license evidence and a scoped security comparison, not a full vulnerability pass.
+
 ## Tauri CLI 2.12.1 rerun (2026-10-09)
 
 [The PR #12 review](tauri-cli-2.12.1-review-2026-10-09.md) records fresh Node (127 installed

@@ -1,5 +1,8 @@
 # Dependency and license inventory
 
+Vite update (2026-10-09, PR #14): Vite resolves to 8.3.2 with the updated Rolldown/build
+graph. See the [fresh component review and recorded security findings](vite-8.3.2-review-2026-10-09.md).
+
 Tauri CLI update (2026-10-09, PR #12): the development/build CLI now resolves to 2.12.1.
 Its 11 platform packages update to the same version; no direct application or Rust dependency
 changes. See the [fresh license review and scope](tauri-cli-2.12.1-review-2026-10-09.md).
@@ -33,7 +36,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `@vitejs/plugin-react` | 6.0.4 | Vite React integration | MIT | Yes, development | Low |
 | `jsdom` | 29.1.1 | Browser-like test environment | MIT | Yes, development | Low |
 | `typescript` | 7.0.2 | Type checking | Apache-2.0 | Yes, development | Low |
-| `vite` | 8.1.5 | Frontend development/build | MIT | Yes, development | Low |
+| `vite` | 8.3.2 | Frontend development/build | MIT | Yes, development | Low |
 | `vitest` | 4.1.10 | Test runner | MIT | Yes, development | Low |
 
 ## Rust dependencies
