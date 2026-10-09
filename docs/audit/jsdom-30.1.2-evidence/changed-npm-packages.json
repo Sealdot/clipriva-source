@@ -1,0 +1,259 @@
+{
+  "baseline_commit": "358a8109058ab68fda1ea7baf2a78bf8ab400501",
+  "dependency_source_commit": "3516947b9a3b4f9755f825d7ed021a9edacee77c",
+  "added_or_updated_packages": [
+    {
+      "name": "@asamuzakjp/css-color",
+      "version": "7.1.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40asamuzakjp%2Fcss-color/7.1.3",
+      "engines": {
+        "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+      }
+    },
+    {
+      "name": "@asamuzakjp/dom-selector",
+      "version": "9.2.4",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40asamuzakjp%2Fdom-selector/9.2.4",
+      "engines": {
+        "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+      }
+    },
+    {
+      "name": "@bramus/specificity",
+      "version": "2.4.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40bramus%2Fspecificity/2.4.3"
+    },
+    {
+      "name": "@csstools/color-helpers",
+      "version": "6.1.2",
+      "license": "MIT-0",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40csstools%2Fcolor-helpers/6.1.2",
+      "engines": {
+        "node": ">=20.19.0"
+      }
+    },
+    {
+      "name": "@csstools/css-calc",
+      "version": "3.4.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40csstools%2Fcss-calc/3.4.3",
+      "engines": {
+        "node": ">=20.19.0"
+      },
+      "peerDependencies": {
+        "@csstools/css-tokenizer": "^4.0.2",
+        "@csstools/css-parser-algorithms": "^4.0.2"
+      }
+    },
+    {
+      "name": "@csstools/css-color-parser",
+      "version": "4.2.6",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40csstools%2Fcss-color-parser/4.2.6",
+      "engines": {
+        "node": ">=20.19.0"
+      },
+      "peerDependencies": {
+        "@csstools/css-tokenizer": "^4.0.2",
+        "@csstools/css-parser-algorithms": "^4.0.2"
+      }
+    },
+    {
+      "name": "@csstools/css-parser-algorithms",
+      "version": "4.0.2",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40csstools%2Fcss-parser-algorithms/4.0.2",
+      "engines": {
+        "node": ">=20.19.0"
+      },
+      "peerDependencies": {
+        "@csstools/css-tokenizer": "^4.0.2"
+      }
+    },
+    {
+      "name": "@csstools/css-syntax-patches-for-csstree",
+      "version": "1.1.15",
+      "license": "MIT-0",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40csstools%2Fcss-syntax-patches-for-csstree/1.1.15",
+      "peerDependencies": {
+        "css-tree": "^3.2.1"
+      }
+    },
+    {
+      "name": "@csstools/css-tokenizer",
+      "version": "4.0.2",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40csstools%2Fcss-tokenizer/4.0.2",
+      "engines": {
+        "node": ">=20.19.0"
+      }
+    },
+    {
+      "name": "@exodus/bytes",
+      "version": "1.16.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40exodus%2Fbytes/1.16.0",
+      "engines": {
+        "node": "^20.19.0 || ^22.12.0 || >=24.0.0"
+      },
+      "peerDependencies": {
+        "@noble/hashes": "^1.8.0 || ^2.0.0"
+      }
+    },
+    {
+      "name": "bidi-js",
+      "version": "1.1.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/bidi-js/1.1.0"
+    },
+    {
+      "name": "data-urls",
+      "version": "8.0.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/data-urls/8.0.0",
+      "engines": {
+        "node": "^22.14.0 || >=24.0.0"
+      }
+    },
+    {
+      "name": "entities",
+      "version": "8.1.0",
+      "license": "BSD-2-Clause",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/entities/8.1.0",
+      "engines": {
+        "node": ">=20.19.0"
+      }
+    },
+    {
+      "name": "html-encoding-sniffer",
+      "version": "7.0.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/html-encoding-sniffer/7.0.0",
+      "engines": {
+        "node": "^22.13.0 || >=24.0.0"
+      }
+    },
+    {
+      "name": "jsdom",
+      "version": "30.1.2",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/jsdom/30.1.2",
+      "engines": {
+        "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+      },
+      "peerDependencies": {
+        "canvas": "^3.2.3"
+      }
+    },
+    {
+      "name": "lru-cache",
+      "version": "11.5.3",
+      "license": "BlueOak-1.0.0",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/lru-cache/11.5.3",
+      "engines": {
+        "node": "20 || >=22"
+      }
+    },
+    {
+      "name": "tldts-core",
+      "version": "7.4.16",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/tldts-core/7.4.16"
+    },
+    {
+      "name": "tldts",
+      "version": "7.4.16",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/tldts/7.4.16"
+    },
+    {
+      "name": "tr46",
+      "version": "7.0.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/tr46/7.0.0",
+      "engines": {
+        "node": "^22.14.0 || >=24.0.0"
+      }
+    },
+    {
+      "name": "undici",
+      "version": "8.11.2",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/undici/8.11.2",
+      "engines": {
+        "node": ">=22.19.0"
+      }
+    },
+    {
+      "name": "w3c-xmlserializer",
+      "version": "6.0.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/w3c-xmlserializer/6.0.0",
+      "engines": {
+        "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+      }
+    },
+    {
+      "name": "whatwg-url",
+      "version": "17.2.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/whatwg-url/17.2.0",
+      "engines": {
+        "node": "^22.14.0 || >=24.0.0"
+      }
+    }
+  ],
+  "removed_package_versions": [
+    "@asamuzakjp/css-color@5.1.11",
+    "@asamuzakjp/dom-selector@7.1.1",
+    "@asamuzakjp/generational-cache@1.0.1",
+    "@asamuzakjp/nwsapi@2.3.9",
+    "@bramus/specificity@2.4.2",
+    "@csstools/color-helpers@6.1.0",
+    "@csstools/css-calc@3.3.0",
+    "@csstools/css-color-parser@4.1.10",
+    "@csstools/css-parser-algorithms@4.0.0",
+    "@csstools/css-syntax-patches-for-csstree@1.1.7",
+    "@csstools/css-tokenizer@4.0.0",
+    "@exodus/bytes@1.15.1",
+    "bidi-js@1.0.3",
+    "data-urls@7.0.0",
+    "entities@8.0.0",
+    "html-encoding-sniffer@6.0.0",
+    "jsdom@29.1.1",
+    "lru-cache@11.5.2",
+    "source-map-js@1.2.1",
+    "symbol-tree@3.2.4",
+    "tldts-core@7.4.9",
+    "tldts@7.4.9",
+    "tr46@6.0.0",
+    "undici@7.28.0",
+    "w3c-xmlserializer@5.0.0",
+    "whatwg-url@16.0.1"
+  ]
+}

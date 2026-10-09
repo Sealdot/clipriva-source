@@ -51,7 +51,7 @@ Labs 仍保持离线：没有云端执行器、模型提供商连接、分析端
 ### 环境要求
 
 - macOS 13 或更高版本
-- Node.js 24.14.0（见 `.nvmrc`）
+- Node.js 24.15.0（见 `.nvmrc`；安装时会强制检查依赖的 Node 版本要求）
 - pnpm 11.9.0
 - Rust 1.97.1（由 `rust-toolchain.toml` 固定）
 - Xcode Command Line Tools

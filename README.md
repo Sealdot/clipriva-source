@@ -89,7 +89,7 @@ remain a separate release gate.
 ### Requirements
 
 - macOS 13 or newer
-- Node.js 24.14.0 (see `.nvmrc`)
+- Node.js 24.15.0 (see `.nvmrc`; dependency engine requirements are enforced during installation)
 - pnpm 11.9.0
 - Rust 1.97.1 (see `rust-toolchain.toml`)
 - Xcode command-line tools
