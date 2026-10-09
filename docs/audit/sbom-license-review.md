@@ -1,5 +1,17 @@
 # SBOM and transitive-license review
 
+## Tauri CLI 2.12.1 rerun (2026-10-09)
+
+[The PR #12 review](tauri-cli-2.12.1-review-2026-10-09.md) records fresh Node (127 installed
+components), macOS ARM64 Rust (317 registry components) and all-platform Rust (518 registry
+components) license metadata. All reviewed graphs have zero missing, unsupported, or
+restricted-without-permissive-alternative declarations. The two all-platform `r-efi` entries
+retain MIT/Apache-2.0 alternatives to LGPL. All 12 upgraded CLI/platform npm packages declare
+`Apache-2.0 OR MIT` and match their locked integrity values. Portable component reports,
+lockfile hashes, reproduction commands and coverage limits are linked from that review.
+Final candidate tests and CI artifacts remain separate evidence; these license results do
+not establish native compatibility or binary-release readiness.
+
 ## Public source preview rerun (2026-10-08)
 
 The preview based on `b4ec2fe` adds `Apache-2.0` to both project manifests, without changing

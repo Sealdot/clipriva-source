@@ -1,5 +1,9 @@
 # Dependency and license inventory
 
+Tauri CLI update (2026-10-09, PR #12): the development/build CLI now resolves to 2.12.1.
+Its 11 platform packages update to the same version; no direct application or Rust dependency
+changes. See the [fresh license review and scope](tauri-cli-2.12.1-review-2026-10-09.md).
+
 Public source preview (2026-10-08): no direct product dependency or resolved version changes.
 Manifest changes add project license metadata only. `cargo-audit` 0.22.2 (MIT OR Apache-2.0)
 and RustSec advisory data (CC0-1.0) are downloaded CI tooling, not product dependencies.
@@ -20,7 +24,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `react` | 19.2.8 | UI runtime | MIT | Yes | Low |
 | `react-dom` | 19.2.8 | Browser rendering | MIT | Yes | Low |
 | `@biomejs/biome` | 2.5.5 | Format/lint checks | MIT OR Apache-2.0 | Yes, development | Low |
-| `@tauri-apps/cli` | 2.11.4 | Tauri development/build CLI | Apache-2.0 OR MIT | Yes, development | Low |
+| `@tauri-apps/cli` | 2.12.1 | Tauri development/build CLI | Apache-2.0 OR MIT | Yes, development | Low |
 | `@testing-library/jest-dom` | 7.0.0 | DOM test assertions | MIT | Yes, development | Low |
 | `@testing-library/react` | 16.3.2 | React component tests | MIT | Yes, development | Low |
 | `@types/node` | 26.1.1 | Node.js types | MIT | Yes, development | Low |
