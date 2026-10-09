@@ -1,4 +1,5 @@
 packages:
   - "."
+engineStrict: true
 allowBuilds:
   "@swc/core": false
