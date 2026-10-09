@@ -1,5 +1,9 @@
 # Dependency and license inventory
 
+React Testing Library update (2026-10-09, PR #13): the development/test dependency now
+resolves to 16.3.3 (MIT). No peer or transitive dependency version changes. See the
+[fresh Node/Rust license review and security findings](react-testing-library-16.3.3-review-2026-10-09.md).
+
 Vite update (2026-10-09, PR #14): Vite resolves to 8.3.2 with the updated Rolldown/build
 graph. See the [fresh component review and recorded security findings](vite-8.3.2-review-2026-10-09.md).
 
@@ -29,7 +33,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `@biomejs/biome` | 2.5.5 | Format/lint checks | MIT OR Apache-2.0 | Yes, development | Low |
 | `@tauri-apps/cli` | 2.12.1 | Tauri development/build CLI | Apache-2.0 OR MIT | Yes, development | Low |
 | `@testing-library/jest-dom` | 7.0.0 | DOM test assertions | MIT | Yes, development | Low |
-| `@testing-library/react` | 16.3.2 | React component tests | MIT | Yes, development | Low |
+| `@testing-library/react` | 16.3.3 | React component tests | MIT | Yes, development | Low |
 | `@types/node` | 26.1.1 | Node.js types | MIT | Yes, development | Low |
 | `@types/react` | 19.2.17 | React types | MIT | Yes, development | Low |
 | `@types/react-dom` | 19.2.3 | React DOM types | MIT | Yes, development | Low |

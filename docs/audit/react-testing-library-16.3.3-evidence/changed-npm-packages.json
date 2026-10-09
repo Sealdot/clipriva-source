@@ -1,0 +1,24 @@
+{
+  "baseline_commit": "b37c2255e3fe3c49038478cf54e47c7087fe509f",
+  "dependency_source_commit": "03faa2ca709d6ccf89d2814c5ed80980a091b8df",
+  "added_or_updated_packages": [
+    {
+      "name": "@testing-library/react",
+      "version": "16.3.3",
+      "license": "MIT",
+      "engines": {
+        "node": ">=18"
+      },
+      "peer_dependencies": {
+        "react": "^18.0.0 || ^19.0.0",
+        "react-dom": "^18.0.0 || ^19.0.0",
+        "@types/react": "^18.0.0 || ^19.0.0",
+        "@types/react-dom": "^18.0.0 || ^19.0.0",
+        "@testing-library/dom": "^10.0.0"
+      },
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40testing-library%2Freact/16.3.3"
+    }
+  ],
+  "removed_package_versions": ["@testing-library/react@16.3.2"]
+}
