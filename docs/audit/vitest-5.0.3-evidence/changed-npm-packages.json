@@ -1,0 +1,169 @@
+{
+  "baseline_commit": "a6c7c852508f306951ffc212ecad002d66b485eb",
+  "dependency_source_commit": "f4be0a03897f741bae075c5c831e9dbd411a166d",
+  "added_or_updated_packages": [
+    {
+      "name": "@jridgewell/resolve-uri",
+      "version": "3.1.2",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40jridgewell%2Fresolve-uri/3.1.2",
+      "engines": {
+        "node": ">=6.0.0"
+      }
+    },
+    {
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40jridgewell%2Fsourcemap-codec/1.6.0"
+    },
+    {
+      "name": "@jridgewell/trace-mapping",
+      "version": "0.3.31",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40jridgewell%2Ftrace-mapping/0.3.31"
+    },
+    {
+      "name": "@vitest/mocker",
+      "version": "5.0.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40vitest%2Fmocker/5.0.3",
+      "peerDependencies": {
+        "msw": "^2.4.9",
+        "vite": "^6.0.0 || ^7.0.0 || ^8.0.0"
+      }
+    },
+    {
+      "name": "@vitest/spy",
+      "version": "5.0.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/%40vitest%2Fspy/5.0.3"
+    },
+    {
+      "name": "chai",
+      "version": "6.3.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/chai/6.3.0",
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    {
+      "name": "es-module-lexer",
+      "version": "2.3.2",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/es-module-lexer/2.3.2"
+    },
+    {
+      "name": "magic-string",
+      "version": "1.4.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/magic-string/1.4.3"
+    },
+    {
+      "name": "obug",
+      "version": "2.2.1",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/obug/2.2.1",
+      "engines": {
+        "node": ">=12.20.0"
+      }
+    },
+    {
+      "name": "std-env",
+      "version": "4.3.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/std-env/4.3.0"
+    },
+    {
+      "name": "tinybench",
+      "version": "6.2.0",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/tinybench/6.2.0",
+      "engines": {
+        "node": ">=20.0.0"
+      }
+    },
+    {
+      "name": "tinyexec",
+      "version": "1.3.1",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/tinyexec/1.3.1",
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    {
+      "name": "vitest",
+      "version": "5.0.3",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/vitest/5.0.3",
+      "engines": {
+        "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+      },
+      "peerDependencies": {
+        "vite": "^6.4.0 || ^7.0.0 || ^8.0.0",
+        "jsdom": "*",
+        "happy-dom": "*",
+        "@vitest/ui": "5.0.3",
+        "@types/node": "^22.0.0 || >=24.0.0",
+        "@edge-runtime/vm": "*",
+        "@opentelemetry/api": "^1.9.0",
+        "@vitest/coverage-v8": "5.0.3",
+        "@vitest/browser-preview": "5.0.3",
+        "@vitest/coverage-istanbul": "5.0.3",
+        "@vitest/browser-playwright": "5.0.3",
+        "@vitest/browser-webdriverio": "^5.0.0-beta.5 || >=5.0.0"
+      }
+    },
+    {
+      "name": "why-is-node-running",
+      "version": "3.2.1",
+      "license": "MIT",
+      "integrity_matches_lockfile": true,
+      "source": "https://registry.npmjs.org/why-is-node-running/3.2.1",
+      "engines": {
+        "node": ">=20.11"
+      }
+    }
+  ],
+  "removed_package_versions": [
+    "@jridgewell/sourcemap-codec@1.5.5",
+    "@standard-schema/spec@1.1.0",
+    "@vitest/expect@4.1.10",
+    "@vitest/mocker@4.1.10",
+    "@vitest/pretty-format@4.1.10",
+    "@vitest/runner@4.1.10",
+    "@vitest/snapshot@4.1.10",
+    "@vitest/spy@4.1.10",
+    "@vitest/utils@4.1.10",
+    "chai@6.2.2",
+    "convert-source-map@2.0.0",
+    "es-module-lexer@2.3.1",
+    "magic-string@0.30.21",
+    "obug@2.1.4",
+    "pathe@2.0.3",
+    "picomatch@4.0.5",
+    "siginfo@2.0.0",
+    "stackback@0.0.2",
+    "std-env@4.2.0",
+    "tinybench@2.9.0",
+    "tinyexec@1.2.4",
+    "tinyrainbow@3.1.0",
+    "vitest@4.1.10",
+    "why-is-node-running@2.3.0"
+  ]
+}

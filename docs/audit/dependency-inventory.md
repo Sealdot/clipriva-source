@@ -1,5 +1,9 @@
 # Dependency and license inventory
 
+Vitest update (2026-10-09, PR #9): the development/test runner now resolves to 5.0.3
+(MIT) with its updated test-tool graph. See the [migration review, fresh license evidence
+and remaining security findings](vitest-5.0.3-review-2026-10-09.md).
+
 React Testing Library update (2026-10-09, PR #13): the development/test dependency now
 resolves to 16.3.3 (MIT). No peer or transitive dependency version changes. See the
 [fresh Node/Rust license review and security findings](react-testing-library-16.3.3-review-2026-10-09.md).
@@ -41,7 +45,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `jsdom` | 29.1.1 | Browser-like test environment | MIT | Yes, development | Low |
 | `typescript` | 7.0.2 | Type checking | Apache-2.0 | Yes, development | Low |
 | `vite` | 8.3.2 | Frontend development/build | MIT | Yes, development | Low |
-| `vitest` | 4.1.10 | Test runner | MIT | Yes, development | Low |
+| `vitest` | 5.0.3 | Test runner | MIT | Yes, development | Low |
 
 ## Rust dependencies
 
