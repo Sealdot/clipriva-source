@@ -2,245 +2,167 @@
 
 [简体中文](README.zh-CN.md) | English
 
-ClipRiva is an open-source clipboard history for macOS. Its Core helps you quickly find and
-reuse copied text, images, rich text and file references without an account, analytics or network
-connection.
+**Find and reuse something you copied earlier.** ClipRiva is a macOS clipboard-history tool:
+copy two pieces of text, open Quick Paste, search for the earlier one, and press Enter to put it
+back on the system clipboard. Then paste it in your original app with `Command + V`.
 
-ClipRiva Core is the product: a dependable clipboard tool that works fully offline. Optional local
-experiments live in **ClipRiva Labs**, are disabled by default and never send clipboard content to a
-remote service.
+The core workflow keeps History on your Mac and needs no account or remote service. You can also
+browse copied text, images, rich text and file references in the History workspace.
 
-**Local Link v1.5 Release Candidate** is a separate, default-off same-LAN text handoff. Explicit
-enable starts the native Bonjour/TCP service; authenticated Noise pairing requires both Macs to
-confirm the same safety code, and every received text still requires Copy, Save or Reject. Pending
-text stays in native memory for at most 60 seconds. Unit, browser, loopback and single-Mac tests are
-not two-Mac evidence, so the feature remains a No-Go for binary distribution or validated real-device use until the 50-pairing /
-200-transfer real-Mac gate and privacy review pass. It has no account, cloud relay, offline body
-queue, automatic retry or automatic history sync.
+## Public source preview
 
-> Project status: `2.0.0-alpha.1` is a frozen **source development preview** in
-> [Sealdot/clipriva-source](https://github.com/Sealdot/clipriva-source). Source-only prereleases
-> contain no installer or application binary. CI and downloaded-source verification are
-> commit-specific evidence, linked from each Release. Native UI/installation, real-two-Mac
-> Local Link, signing, notarization and real-device acceptance remain unverified. macOS 13+
-> is the target; the verified runner is macOS 14 on Apple Silicon.
+This repository, [Sealdot/clipriva-source](https://github.com/Sealdot/clipriva-source), publishes
+**source code and source packages**, not a stable app or a signed and notarized installer.
 
-Read the [public source preview record](docs/audit/source-public-preview-2026-10-08.md)
-for security warnings, reproduction and remaining gates. The
-[private runner record](docs/audit/source-ci-verification-2026-10-08.md) and
-[initial export audit](docs/audit/source-candidate-2026-10-08.md) are historical evidence.
-The public repository has independent allow-listed history and contains no old private history.
-Binary release requirements are separate; publishing source does not validate Local Link.
+- [Browse the current source](https://github.com/Sealdot/clipriva-source/tree/main) or use the
+  development paths below. `main` includes updates made after the frozen preview.
+- [Download Source Development Preview 1](https://github.com/Sealdot/clipriva-source/releases/tag/v2.0.0-alpha.1-source-preview.1):
+  application version `2.0.0-alpha.1`, source commit `e4366664163ad51d2deb3276fb28ef4e1114b5dd`.
+  The Release links its source CI, download verification, checksums and reproduction instructions.
+- Native installation/UI, the broader real-device macOS compatibility matrix, signing/notarization and real
+  two-Mac Local Link acceptance remain unverified. Source checks do not establish those outcomes.
 
-## Why ClipRiva
+macOS 13+ is the native target. The frozen preview’s source CI used macOS 14 on Apple Silicon;
+see the [support policy](docs/macos-support.md) for the limits of that evidence.
 
-- **Fast keyboard workflow:** open Quick Paste globally, search, navigate and restore a clip without
-  opening the main window.
-- **Control over sensitive history:** pause capture, exclude applications, set retention limits and
-  automatically stop before high-confidence secrets are stored.
-- **Useful local formats:** capture and restore text, images, rich text and macOS file references.
-- **Transparent by design:** history stays in the local app-data directory and the fixed Tauri IPC
-  surface exposes neither arbitrary SQL nor arbitrary filesystem access.
-- **No platform prerequisites:** the core clipboard workflow does not require an account, model
-  provider, sync service or Agent integration.
+## Interface examples
 
-macOS Tahoe includes a basic Clipboard view in Spotlight. ClipRiva focuses on the controls and
-persistent keyboard workflow a dedicated, inspectable clipboard tool can provide.
+**Browser preview · synthetic sample data · not proof of native operation.** Both images are
+unmodified, project-owned captures of the actual React UI already published in this repository.
+They do not demonstrate system clipboard capture, global shortcuts, focus return or two-Mac delivery.
 
-## Current features
+**Quick Paste — search earlier clips and choose Copy to clipboard.**
 
-- Background clipboard capture with best-effort source-application attribution.
-- SQLite persistence, exact-version grouping, FTS5 ranking, bounded local tags, pinning, a local
-  recycle bin and configurable retention.
-- Dynamic Smart Collections with bounded rules, plus explicitly opened, searchable Item notes.
-- Conservative local classification for text, code, commands, links and colours.
-- Text, PNG image, RTF/HTML and local file-reference capture and restoration.
-- Global Quick Paste overlay, menu-bar lifecycle, close-to-tray behavior and opt-in launch at login.
-- Configurable Quick Paste and sequential Stack shortcuts; Stack supports collect mode, ordering
-  and deliberate next-Item activation without durable queue storage.
-- Safe restore mode by default; optional direct paste requests macOS Accessibility permission only
-  when the user enables it.
-- Application deny-list, manual pause and automatic pause for high-confidence secrets.
-- Default-off Local Link candidate with a this-device-only Keychain identity/reset path,
-  Bonjour/mDNS discovery, authenticated Noise pairing, bounded text transfer, Incoming Center
-  decisions, content-free status history and autonomous pending expiry.
-- Browser-only in-memory adapter for UI development without starting Tauri.
-- Frontend tests, Rust unit tests, formatting, linting and CI.
+![Quick Paste with synthetic clips, search and Copy to clipboard footer](docs/release/evidence/alpha2-cr02/screenshots/quick-light-browser-mock.png)
 
-## ClipRiva Labs
+**History workspace — browse and organize what you want to reuse.**
 
-Labs is disabled by default. Enabling it in Settings reveals deterministic local summaries, an
-experimental local retrieval mode and a Filter Composer for one-to-eight allow-listed text steps,
-live preview, contextual Filter shortcuts and content-free completion audit.
+![History workspace with synthetic clips, Saved and Collections](docs/release/evidence/alpha2-cr05/screenshots/workspace-list-browser-mock.png)
 
-Local automation is independently disabled by default. When explicitly enabled, the bundled
-ClipRiva CLI and Apple Shortcuts “Run Shell Script” action use capability-specific grants over an
-owner-only local socket. There is no arbitrary shell, SQL, filesystem, network or Agent/MCP API.
+Capture context: [Quick Paste](docs/release/evidence/alpha2-cr02/README.md),
+[workspace](docs/release/evidence/alpha2-cr05/README.md), and
+[asset provenance](THIRD_PARTY_NOTICES.md#assets-and-system-components). These historical visual
+records are separate from current release acceptance.
 
-Labs remains offline. It includes no cloud executor, model-provider connection, analytics endpoint,
-sync service, MCP server or Agent handoff.
+## Three ways it helps
 
-## Install and run
+- **Recover the earlier copy.** Quick Paste search and keyboard navigation help you find a clip
+  after another copy has replaced it on the system clipboard.
+- **Keep useful material close.** History, Saved and Collections let you organize snippets for
+  later reuse; images, rich text and file references are also supported by the native adapters.
+- **Choose what stays on this Mac.** Pause capture, exclude applications, adjust retention and
+  review cleanup before removing History. Local storage still contains data; review
+  [PRIVACY.md](PRIVACY.md) before using sensitive content.
 
-There is no official installer or downloadable app yet. Developers can build ClipRiva from source
-on macOS; the resulting unsigned bundle is for local testing. Public signed and notarized binaries
-remain a separate release gate.
+## First use: recover one earlier text
 
-### Requirements
+After starting the native development app using the macOS path below:
 
-- macOS 13 or newer
-- Node.js 24.15.0 (see `.nvmrc`; dependency engine requirements are enforced during installation)
-- pnpm 11.9.0
-- Rust 1.97.1 (see `rust-toolchain.toml`)
-- Xcode command-line tools
+1. Complete onboarding, keep capture active and use the default clipboard restore behavior.
+2. In a text editor, copy `Sample note: bring a notebook`, then `Sample note: confirm the room`.
+   Confirm both ordinary text samples appear in History.
+3. Press `Command + Shift + Space` (the configurable default) to open Quick Paste. Search for
+   `notebook` and select the earlier sample with the arrow keys.
+4. Press Enter. **Expected result:** the earlier sample is restored to the system clipboard.
+   Return to your editor and press `Command + V` to paste it yourself.
 
-The maintained compatibility matrix covers Ventura 13, Sonoma 14, Sequoia 15 and Tahoe 26 on
-Apple Silicon and supported Intel hardware. See the [macOS support policy](docs/macos-support.md)
-for the distinction between compile, artifact, real-device and signed-distribution evidence.
+Enter performs Copy/restore. **Direct Paste is an optional separate action** that requires macOS
+Accessibility permission and attempts to return focus and send a paste keystroke. The target app
+may not accept the keystroke; permission or target failures can fall back to clipboard restoration.
+Clipboard restore itself does not need Accessibility permission.
 
-```bash
-xcode-select --install
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup component add rustfmt clippy
+If a sample is missing, check capture pause, the excluded-app list and the search term. The
+[first-use guide and FAQ (Chinese)](docs/help/v1.5-getting-started.md) cover further troubleshooting.
+
+### Get source and choose a development path
+
+For the current public branch, run from a directory where you keep source checkouts:
+
+```sh
+git clone https://github.com/Sealdot/clipriva-source.git
+cd clipriva-source
+```
+
+For the frozen source package, download all five attachments from the
+[preview Release](https://github.com/Sealdot/clipriva-source/releases/tag/v2.0.0-alpha.1-source-preview.1)
+into one directory: `ClipRiva-source.tar.gz`, `SOURCE_RECORD.json`, `SHA256SUMS`,
+`REPRODUCE.md` and `CI-evidence.zip`. In that download directory:
+
+```sh
+shasum -a 256 -c SHA256SUMS
+tar -xzf ClipRiva-source.tar.gz
+cd ClipRiva-source
+```
+
+Run subsequent commands in the source root containing `package.json` and `src-tauri/`.
+Use the toolchain pins **in the checkout you selected**: `.nvmrc`, `package.json`'s
+`packageManager`, `rust-toolchain.toml`, `pnpm-lock.yaml` and `src-tauri/Cargo.lock`.
+Current `main` pins Node.js **24.15.0**, pnpm **11.9.0** and Rust **1.97.1**. The frozen
+October 8 package predates later dependency/runtime updates; follow its included `REPRODUCE.md`
+and pins rather than substituting current versions. Use `pnpm install --frozen-lockfile`,
+not `npm install`. No application `.env` configuration is required.
+
+**Path A — browser UI preview.** With the selected Node.js and pnpm versions installed:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Open [History at 127.0.0.1:1420](http://127.0.0.1:1420/) or
+[Quick Paste preview](http://127.0.0.1:1420/?quick-paste-preview) yourself.
+Expected result: the real interface backed by in-memory **synthetic sample data**, reset on reload.
+It does not monitor your system clipboard or register global shortcuts. Copy can request a browser
+clipboard write, subject to browser permission; simulated native and Local Link states are not
+macOS or two-device validation. Rust and Xcode are not needed for this path.
+
+**Path B — macOS native development.** On macOS 13+, install Xcode Command Line Tools
+(`xcode-select --install` if absent), the selected Node.js/pnpm versions, and Rust via rustup.
+`rust-toolchain.toml` selects Rust, rustfmt and Clippy when Cargo runs from the source root.
+
+```sh
 pnpm install --frozen-lockfile
 pnpm desktop:dev
 ```
 
-Run only the browser development adapter:
+Expected result: Tauri compiles and starts the local development app with native clipboard
+adapters. This command opens app windows; it is not an installer or signing/notarization check.
+Use ordinary synthetic text for the first-use exercise. Unsigned bundle instructions and full
+checks belong to the [development guide](CONTRIBUTING.md) and [release guide](docs/release.md).
 
-```bash
-pnpm dev
-```
+## Experiments and data-handling limits
 
-Build an unsigned local application bundle:
+- **Labs and local automation are independently off by default.** Optional local summaries,
+  retrieval, text filters and CLI/Shortcuts capabilities are experiments. Manual image OCR uses
+  macOS Vision. Implementation boundaries are in [the architecture](docs/architecture.md) and
+  [module-boundary document](docs/open-source/module-boundary.md).
+- **Local Link is off by default and remains Preview / No-Go.** Explicit enable starts local
+  network discovery/transport. It is an explicit **single-text handoff** to a paired Mac: the
+  receiver chooses Copy (clipboard only), Save (History only) or Reject. It is not automatic
+  clipboard mirroring or History sync, has no cloud relay or offline delivery queue, and has not
+  completed real two-Mac validation. See [the evidence gate](docs/release/local-link-ga-evidence-gate.md).
+- **Local does not mean nothing is recorded.** History and related metadata live in local
+  SQLite/blobs; encryption at rest is not claimed. Optional diagnostics are off by default and
+  retain bounded event/result metadata, day and app version when enabled, excluding clipboard
+  bodies and identifying fields. Privacy Activity separately retains bounded content-free capture
+  reasons and may include a source-app label. Review [data handling](PRIVACY.md) and
+  [data flows](docs/privacy/data-flow.md).
+- **Sensitive-content detection is limited.** Detected high-confidence secrets are skipped before
+  storage; Strict mode also pauses subsequent capture until you resume it. This is not a guarantee
+  that every secret will be detected. App exclusions do not erase existing History. Privacy Cover
+  hides the interface while History remains stored and capture continues unless paused; it is
+  neither disk encryption nor a system-wide recording block.
 
-```bash
-pnpm release:bundle:unsigned
-```
+## Detailed documentation
 
-The bundle is written to `src-tauri/target/release/bundle/macos/ClipRiva.app`. Because it is unsigned,
-it is intended for local development rather than public redistribution.
+| Topic | Where to read |
+| --- | --- |
+| Development, checks and contribution rules | [Contributing](CONTRIBUTING.md), [change rules](docs/development/open-source-change-rules.md) |
+| Core, Labs and Local Link implementation | [Architecture](docs/architecture.md), [module boundaries](docs/open-source/module-boundary.md), [Local Link protocol](docs/local-link/PROTOCOL-v1.5.md) |
+| Privacy and security reporting | [Privacy](PRIVACY.md), [Security](SECURITY.md) |
+| Source verification and historical audits | [Public preview record](docs/audit/source-public-preview-2026-10-08.md), [SBOM/license review](docs/audit/sbom-license-review.md) |
+| Native support and release gates | [macOS support](docs/macos-support.md), [release checklist](docs/release/release-checklist.md), [Local Link evidence](docs/release/local-link-ga-evidence-gate.md) |
+| Product direction and ordinary bugs | [Roadmap](ROADMAP.md), [public issues](https://github.com/Sealdot/clipriva-source/issues) |
 
-Get source from the [repository](https://github.com/Sealdot/clipriva-source) or its
-[source-only prereleases](https://github.com/Sealdot/clipriva-source/releases).
-Verify `SHA256SUMS` before extraction and follow the
-[reproduction instructions](docs/audit/source-public-preview-2026-10-08.md).
-Use the [issue tracker](https://github.com/Sealdot/clipriva-source/issues) for ordinary bugs;
-report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
-
-## Screenshots
-
-![ClipRiva main workspace](docs/assets/clipriva-main-workspace.png)
-
-The screenshot shows the macOS browser development fixture with synthetic clipboard entries. It
-illustrates the interface and is not proof of a signed app or real-Mac Local Link behavior.
-
-## Daily use
-
-- Open Quick Paste with `Command + Shift + Space` by default. The shortcut can be changed in
-  Settings.
-- Search and navigate with the arrow keys, then press Enter.
-- Restore mode puts the selected content back on the clipboard; paste it with `Command + V`.
-- Optional direct-paste mode returns focus to the previous application and sends `Command + V`
-  after the user grants Accessibility permission.
-- Press `Command + K` in the main window to focus history search.
-- Clearing history shows a shared impact preview, preserves pinned clips by default and moves
-  recoverable items to the local Recycle Bin.
-
-The Chinese [v1.5 getting-started guide and FAQ](docs/help/v1.5-getting-started.md) covers the full
-workflow, Local Link setup and troubleshooting. Candidate limitations are tracked in the
-[1.5.0 known-issues record](docs/release/known-issues-1.5.md).
-
-## Local data and privacy
-
-On macOS, application data is stored under:
-
-```text
-~/Library/Application Support/com.clipriva.desktop/
-```
-
-This directory contains `clipriva.sqlite3` and content-addressed local blobs. Quit ClipRiva before
-backing up or manually removing the directory. Removing it resets all history and settings and
-cannot be undone. The Local Link candidate identity is stored separately in macOS Keychain, so
-removing this directory may leave it behind. The Local Link security details include an explicit
-identity reset that deletes the Keychain item, invalidates local peer bindings and requires every
-device to pair again; it does not delete History. See [PRIVACY.md](PRIVACY.md) before testing
-recovery.
-
-- Denied applications are discarded before storage.
-- Detected high-confidence secrets pause capture before persistence.
-- Labs enrichment is generated only when Labs is enabled or an enabled Labs view requests it.
-- Direct paste is optional; restore mode does not need Accessibility permission.
-- Core, Labs and local diagnostics have no telemetry, remote service, account or model provider.
-- Local Link is the only application network boundary. It starts its native same-LAN service only
-  after explicit enable and stops it on disable/reset. It has no ClipRiva cloud relay, Internet
-  fallback or offline body queue.
-
-See [PRIVACY.md](PRIVACY.md) for data handling and [SECURITY.md](SECURITY.md) for reporting and
-trust-boundary details.
-
-## Development
-
-Use the pinned pnpm workflow for reproducible local dependency resolution:
-
-```bash
-pnpm install --frozen-lockfile
-pnpm dev
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm build
-pnpm lint:rust
-pnpm test:rust
-```
-
-`npm run dev`, `npm run lint`, `npm run typecheck`, `npm run test`, and `npm run build` expose the
-same command names after dependencies are installed. Do not use `npm install` for this repository:
-the committed lockfile and declared package manager are pnpm.
-
-Repository structure:
-
-```text
-src/                         React application and clipboard UI
-src-tauri/src/clipboard/     Platform capture, policy and Quick Paste adapters
-src-tauri/src/db/            SQLite repository and migrations
-src-tauri/src/media/         Content-addressed local representations
-docs/                        Architecture, roadmap and release gates
-```
-
-Read [docs/user-stories.md](docs/user-stories.md), [docs/architecture.md](docs/architecture.md),
-[ROADMAP.md](ROADMAP.md), [CONTRIBUTING.md](CONTRIBUTING.md), and the
-[open-source boundary report](docs/open-source/module-boundary.md) before changing a privacy or
-platform boundary.
-
-## Project boundaries
-
-ClipRiva v1 does not include Windows or Linux support, accounts, cross-device sync, cloud AI, MCP,
-Agent integration or a public plugin SDK. Those ideas are not active roadmap commitments.
-
-Local Link's explicit one-item request/decision flow is not cross-device history sync. Images,
-files, rich text, automatic clipboard mirroring, Internet relay, offline delivery and automatic
-retry remain out of scope.
-
-If repeated real-world demand justifies a broader product, it will be developed as a separate layer
-that depends on stable ClipRiva Core services instead of accessing the local database directly.
-
-## License
-
-Licensed under the [Apache License 2.0](LICENSE).
-
-## Brand and known limitations
-
-ClipRiva's name and icon policy is defined in [TRADEMARK.md](TRADEMARK.md). The code remains
-licensed under [Apache License 2.0](LICENSE); the code license does not grant use of the ClipRiva
-name or logos.
-
-Known current limitations:
-
-- macOS 13+ is the only supported platform; Windows and Linux are not v1 commitments.
-- Public signed and notarized binaries are not available yet.
-- The manual compatibility matrix and large-history Quick Paste latency work are incomplete.
-- ClipRiva Labs is experimental, disabled by default, and has no cross-release stability promise.
-- Local Link is experimental and disabled by default. Its native pairing and text-delivery path is
-  implemented, but it remains a Release Candidate / public-release No-Go until Keychain,
-  packet/privacy, sleep/network recovery and two-real-Mac acceptance gates pass.
+Code is licensed under [Apache-2.0](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md)
+and [the ClipRiva name/logo policy](TRADEMARK.md) for asset and brand terms.
