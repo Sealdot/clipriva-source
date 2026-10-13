@@ -37,7 +37,7 @@ They do not demonstrate system clipboard capture, global shortcuts, focus return
 
 **History workspace — browse and organize what you want to reuse.**
 
-![History workspace with synthetic clips, Saved and Collections](docs/release/evidence/alpha2-cr05/screenshots/workspace-list-browser-mock.png)
+<img src="docs/release/evidence/alpha2-cr05/screenshots/workspace-list-browser-mock.png" width="520" alt="History workspace with synthetic clips, Saved and Collections">
 
 Capture context: [Quick Paste](docs/release/evidence/alpha2-cr02/README.md),
 [workspace](docs/release/evidence/alpha2-cr05/README.md), and

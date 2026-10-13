@@ -37,7 +37,7 @@
 
 **历史工作区：浏览并整理需要复用的内容。**
 
-![历史工作区：合成条目、Saved 与 Collections](docs/release/evidence/alpha2-cr05/screenshots/workspace-list-browser-mock.png)
+<img src="docs/release/evidence/alpha2-cr05/screenshots/workspace-list-browser-mock.png" width="520" alt="历史工作区：合成条目、Saved 与 Collections">
 
 截图上下文见 [Quick Paste 记录](docs/release/evidence/alpha2-cr02/README.md)、
 [工作区记录](docs/release/evidence/alpha2-cr05/README.md)与
