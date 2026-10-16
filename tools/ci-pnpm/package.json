@@ -1,0 +1,9 @@
+{
+  "name": "clipriva-ci-pnpm",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "dependencies": {
+    "pnpm": "11.28.6"
+  }
+}

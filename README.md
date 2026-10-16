@@ -97,7 +97,7 @@ cd ClipRiva-source
 Run subsequent commands in the source root containing `package.json` and `src-tauri/`.
 Use the toolchain pins **in the checkout you selected**: `.nvmrc`, `package.json`'s
 `packageManager`, `rust-toolchain.toml`, `pnpm-lock.yaml` and `src-tauri/Cargo.lock`.
-Current `main` pins Node.js **24.15.0**, pnpm **11.9.0** and Rust **1.97.1**. The frozen
+Current `main` pins Node.js **24.15.0**, pnpm **11.28.6** and Rust **1.97.1**. The frozen
 October 8 package predates later dependency/runtime updates; follow its included `REPRODUCE.md`
 and pins rather than substituting current versions. Use `pnpm install --frozen-lockfile`,
 not `npm install`. No application `.env` configuration is required.

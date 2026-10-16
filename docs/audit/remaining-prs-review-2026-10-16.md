@@ -6,7 +6,7 @@
   Audit follow-ups add inventory, notices and portable evidence; a mechanical Luhn-expression
   update follows for the newly applicable Rust lint. Component reports bind the dependency
   graph with both lockfile SHA-256 values.
-- Validation toolchain: Node 24.15.0, pnpm 11.9.0, Rust/Cargo 1.97.1; local macOS ARM64.
+- Validation toolchain: Node 24.15.0, pnpm 11.28.6 (final), Rust/Cargo 1.97.1; local macOS ARM64.
 
 ## Included work
 
@@ -45,15 +45,24 @@ No real device key or clipboard content is used.
 
 ### Intel pnpm setup
 
-The failed #5 Intel jobs select a standalone/native pnpm bootstrap and fail with
-`ERR_PNPM_PNPM_ENGINE_IDENTITY_UNVERIFIABLE`. The new action inspects the PATH-resolved Node
-version before choosing its bootstrap. Both workflows previously installed pnpm before the
-project's pinned Node, allowing the hosted runner's older preinstalled Node to select the
-unwanted path. Load `.nvmrc` through setup-node first, then install pnpm. Move store caching
-from setup-node to pnpm/action-setup's supported `cache: true` input, so cache discovery still
-happens after the requested package-manager version is available. The packageManager pin,
-strict engine policy, frozen application lockfile and action commit pins remain enforced.
-All five runners, especially both Intel runners, must validate this fix in combined CI.
+The failed #5 Intel jobs select a native pnpm self-update and fail with
+`ERR_PNPM_PNPM_ENGINE_IDENTITY_UNVERIFIABLE`. The first attempted repair loaded the pinned
+Node before the action. Combined CI then proved that pnpm/action-setup 6.1.0 still invokes
+the failing self-update with Node 24.15.0 active and standalone=false. Those failed/cancelled
+runs are not accepted evidence.
+
+Supersede the action with tools/ci-pnpm/package-lock.json: npm ci installs an exact pnpm
+package under the runner temporary directory, validates committed registry integrity and
+runs no install scripts. Check its installed version against the root packageManager pin,
+then expose its JavaScript CLI on PATH. No native self-update or integrity-policy bypass is
+used. The bootstrap is included in native matrix path filters. Store caching from the old
+action is removed; each runner performs the frozen application install normally.
+
+The new explicit bootstrap audit also reveals public high-severity advisories for the old
+pnpm 11.9.0 tool. Upgrade the root tool pin and active setup documentation to 11.28.6; its
+isolated lockfile audit reports zero findings. The application Node graph is unchanged.
+The separate bootstrap adds one MIT development-tool component, with registry integrity
+verified. All five runners, especially both Intel runners, must validate this final repair.
 
 ### Required runtime and toolchain updates
 
@@ -80,8 +89,8 @@ x25519 retains static-secret verification and zeroization; Noise's protocol/ciph
 Keychain attributes/blob version do not change. No new network destination, permission,
 stored data type, telemetry, cloud route, export, trust rule or fallback is introduced.
 
-The README changes are the two original reviewed files, use existing approved captures, and
-keep frozen-release pins distinct from current main. All 62 relative-link file targets were
+The README changes retain the original reviewed first-use content, use existing approved captures, and
+keep frozen-release pins distinct from current main; only the active pnpm pin changes to 11.28.6. All 62 relative-link file targets were
 checked on the combined tree. No image, icon, logo, font or other asset bytes change.
 
 ## License, integrity and security evidence
@@ -92,7 +101,8 @@ checked on the combined tree. No image, icon, logo, font or other asset bytes ch
 | Reachable all-feature macOS ARM64 Rust registry graph | 315 | 0 | 0 | 0 |
 | Reachable all-feature all-platform Rust registry graph | 514 | 0 | 0 | 0 |
 
-The Node lockfile/versions are unchanged. New/updated Rust declarations have no missing,
+The application Node lockfile/versions are unchanged; packageManager now pins pnpm 11.28.6.
+The separate CI bootstrap lockfile adds one MIT component with zero npm advisory findings. New/updated Rust declarations have no missing,
 unsupported or restricted-without-permissive-alternative findings. The reports retain original
 expressions, legacy syntax normalization and both r-efi permissive alternatives to LGPL.
 The three action tags/commits, MIT licenses and Node 24 metadata were checked against upstream;
@@ -108,7 +118,8 @@ seven to two. This is not approval to distribute the unsupported Linux dependenc
 - [All-platform Rust evidence](remaining-prs-evidence/all-platforms.json).
 - [Changed Rust downloads and checksum verification](remaining-prs-evidence/changed-rust-packages.json).
 - [Action provenance and license hashes](remaining-prs-evidence/action-provenance.json).
-- [npm advisory summary](remaining-prs-evidence/npm-audit-summary.json).
+- [Application npm advisory summary](remaining-prs-evidence/npm-audit-summary.json) and
+  [separate patched pnpm bootstrap review](remaining-prs-evidence/pnpm-bootstrap.json).
 - [Reviewed RustSec aggregate](remaining-prs-evidence/rust-advisory-review.json) and
   [tool/database provenance](remaining-prs-evidence/rust-audit-provenance.txt).
 

@@ -15,7 +15,7 @@
 
 ## Development environment
 
-ClipRiva currently supports macOS 14 or newer. Install Node.js 24.15.0 (see `.nvmrc`), pnpm 11.9.0,
+ClipRiva currently supports macOS 14 or newer. Install Node.js 24.15.0 (see `.nvmrc`), pnpm 11.28.6,
 Rust 1.97.1 (see `rust-toolchain.toml`), Xcode Command Line Tools, `rustfmt`, and `clippy`.
 
 Installation enforces the supported Node range `^24.15.0 || >=26.0.0` through

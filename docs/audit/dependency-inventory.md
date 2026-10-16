@@ -58,6 +58,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `typescript` | 7.0.2 | Type checking | Apache-2.0 | Yes, development | Low |
 | `vite` | 8.3.2 | Frontend development/build | MIT | Yes, development | Low |
 | `vitest` | 5.0.4 | Test runner | MIT | Yes, development | Low |
+| `pnpm` | 11.28.6 | Isolated integrity-locked CI package-manager bootstrap; replaces vulnerable 11.9.0 tool pin | MIT | Yes, CI tooling only | Low; separately locked in tools/ci-pnpm/package-lock.json, not shipped |
 
 ## Rust dependencies
 

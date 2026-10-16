@@ -91,7 +91,7 @@ cd ClipRiva-source
 
 后续命令均在包含 `package.json` 和 `src-tauri/` 的源码根目录运行。以**所选检出版本自身**的
 `.nvmrc`、`package.json` 中的 `packageManager`、`rust-toolchain.toml`、`pnpm-lock.yaml`
-及 `src-tauri/Cargo.lock` 为准。当前 `main` 锁定 Node.js **24.15.0**、pnpm **11.9.0**、
+及 `src-tauri/Cargo.lock` 为准。当前 `main` 锁定 Node.js **24.15.0**、pnpm **11.28.6**、
 Rust **1.97.1**。10 月 8 日冻结包早于后续依赖与运行时更新，请按包内 `REPRODUCE.md`
 和版本声明复现，不要直接替换为当前版本。使用 `pnpm install --frozen-lockfile`，不要用
 `npm install`。无需配置应用 `.env` 文件。

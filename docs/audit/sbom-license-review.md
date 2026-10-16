@@ -6,7 +6,10 @@
 components, 315 macOS ARM64 Rust registry components and 514 all-platform Rust registry
 components. Fresh reports have no missing, unsupported or restricted-without-permissive-
 alternative declarations. All 57 added/updated Rust crate downloads match locked checksums.
-The Node graph is unchanged. Full and production npm audits report zero findings. Fresh
+The application Node graph is unchanged. The isolated CI bootstrap separately reviews one
+MIT pnpm 11.28.6 component with matching registry integrity and zero npm advisory findings;
+it replaces the old 11.9.0 tool pin with a high-severity advisory. Full and production
+application npm audits report zero findings. Fresh
 RustSec reports zero vulnerabilities and two reviewed warnings, reduced from seven because
 the updated runtime removes five unmaintained Unicode crates. Both retained warnings are
 absent from the macOS target graph; this does not authorize unsupported Linux distribution.
