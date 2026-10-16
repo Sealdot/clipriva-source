@@ -15,7 +15,7 @@ an artifact-specific review of bundled licenses and notices.
 - `@tanstack/react-query` — MIT
 - `@tauri-apps/api` — Apache-2.0 OR MIT
 - `@tauri-apps/plugin-clipboard-manager` — MIT OR Apache-2.0
-- `lucide-react` — ISC
+- `lucide-react` — ISC; its Feather-derived icons also retain the upstream MIT notice
 - `react`, `react-dom` — MIT
 
 Development-only direct dependencies are listed in [the dependency inventory](docs/audit/dependency-inventory.md).
@@ -83,3 +83,19 @@ vendor source or a product dependency. The workflow uses the MIT-licensed upstre
 project branding, manifests and lockfiles are unchanged. Fresh target-license evidence and
 remaining binary notice obligations are documented in
 [the private runner verification](docs/audit/source-ci-verification-2026-10-08.md).
+
+## Dependency PRs #17–#22 review (2026-10-16)
+
+The icon library updates to `lucide-react` 1.55.0 from the official npm registry, matching
+its locked integrity. The upstream [Lucide license](https://github.com/lucide-icons/lucide/blob/1.55.0/LICENSE)
+and installed package LICENSE permit redistribution under ISC, while listed Feather-derived
+icons retain MIT attribution to Cole Bemis. Preserve the full installed license with any
+redistributed icon material; the package metadata’s ISC declaration alone is not the complete
+notice. No separate icon artwork is copied into the source tree. ClipRiva’s name, logo and
+project-owned assets do not change; the existing [brand policy](TRADEMARK.md) still applies.
+
+CI updates `actions/upload-artifact` from v4.6.2 to v7.0.2, pinned to
+`cf430e030ddbb5b0abf93d22962f4752f3646cd9`. This remains MIT-licensed GitHub development
+tooling, with unchanged evidence paths, retention and permissions. It is not shipped in the
+application. The [upstream license](https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/LICENSE)
+and the [focused review](docs/audit/dependency-prs-17-22-review-2026-10-16.md) record provenance.

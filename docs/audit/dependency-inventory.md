@@ -1,5 +1,8 @@
 # Dependency and license inventory
 
+PRs #17–#22 review (2026-10-16): five direct npm dependencies update as listed below;
+Rust dependencies are unchanged. See the [combined review and fresh component evidence](dependency-prs-17-22-review-2026-10-16.md).
+
 JSDOM update (2026-10-09, PR #11): the development/test environment resolves to 30.1.2
 (MIT) with its updated DOM/CSS/HTTP graph. Node is pinned to 24.15.0 to satisfy its engine
 requirements. See the [fresh license, runtime and security review](jsdom-30.1.2-review-2026-10-09.md).
@@ -34,22 +37,22 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | --- | --- | --- | --- | --- | --- |
 | `@tanstack/react-query` | 5.101.4 | Frontend query/cache state | MIT | Yes | Low |
 | `@tauri-apps/api` | 2.11.1 | Typed frontend access to Tauri | Apache-2.0 OR MIT | Yes | Low |
-| `@tauri-apps/plugin-clipboard-manager` | 2.3.2 | Clipboard plugin bindings | MIT OR Apache-2.0 | Yes | Low |
-| `lucide-react` | 1.26.0 | UI icons | ISC | Yes | Low |
+| `@tauri-apps/plugin-clipboard-manager` | 2.4.2 | Clipboard plugin bindings | MIT OR Apache-2.0 | Yes | Low |
+| `lucide-react` | 1.55.0 | UI icons | ISC; Feather-derived icons retain MIT notices | Yes | Low |
 | `react` | 19.2.8 | UI runtime | MIT | Yes | Low |
 | `react-dom` | 19.2.8 | Browser rendering | MIT | Yes | Low |
 | `@biomejs/biome` | 2.5.5 | Format/lint checks | MIT OR Apache-2.0 | Yes, development | Low |
 | `@tauri-apps/cli` | 2.12.1 | Tauri development/build CLI | Apache-2.0 OR MIT | Yes, development | Low |
-| `@testing-library/jest-dom` | 7.0.0 | DOM test assertions | MIT | Yes, development | Low |
+| `@testing-library/jest-dom` | 7.0.1 | DOM test assertions | MIT | Yes, development | Low |
 | `@testing-library/react` | 16.3.3 | React component tests | MIT | Yes, development | Low |
-| `@types/node` | 26.1.1 | Node.js types | MIT | Yes, development | Low |
+| `@types/node` | 26.6.5 | Node.js types | MIT | Yes, development | Low |
 | `@types/react` | 19.2.17 | React types | MIT | Yes, development | Low |
 | `@types/react-dom` | 19.2.3 | React DOM types | MIT | Yes, development | Low |
 | `@vitejs/plugin-react` | 6.0.4 | Vite React integration | MIT | Yes, development | Low |
 | `jsdom` | 30.1.2 | Browser-like test environment | MIT | Yes, development | Low |
 | `typescript` | 7.0.2 | Type checking | Apache-2.0 | Yes, development | Low |
 | `vite` | 8.3.2 | Frontend development/build | MIT | Yes, development | Low |
-| `vitest` | 5.0.3 | Test runner | MIT | Yes, development | Low |
+| `vitest` | 5.0.4 | Test runner | MIT | Yes, development | Low |
 
 ## Rust dependencies
 
