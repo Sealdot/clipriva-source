@@ -3,8 +3,9 @@
 - Review date: 2026-10-16; repository: `Sealdot/clipriva-source`.
 - Baseline: `17ec4c17a43d210cb31bf0bdc9b5e5e16e9a605d` after integration #23.
 - Dependency/repair source: `3328b7ea5bd33beffffb608d358b7ad6e0691109`.
-  The audit follow-up changes only inventory, notices and portable evidence. Component reports
-  bind the dependency graph with both lockfile SHA-256 values.
+  Audit follow-ups add inventory, notices and portable evidence; a mechanical Luhn-expression
+  update follows for the newly applicable Rust lint. Component reports bind the dependency
+  graph with both lockfile SHA-256 values.
 - Validation toolchain: Node 24.15.0, pnpm 11.9.0, Rust/Cargo 1.97.1; local macOS ARM64.
 
 ## Included work
@@ -60,7 +61,9 @@ The downloaded global-shortcut 2.4.0 manifest requires Tauri `2.12` and tauri-pl
 `2.7`; it is not an isolated shortcut patch. Preserve its compatible runtime graph, including
 Tauri 2.12.1 and build tooling 2.7.1. Their maximum declared Rust requirement is 1.90, so raise
 the project's stale 1.85 floor to 1.90. Validation still uses the pinned 1.97.1 toolchain; no
-claim of running the complete suite on the minimum Rust version is made.
+claim of running the complete suite on the minimum Rust version is made. Raising the declared
+floor also enables Clippy’s is_multiple_of lint; replace the existing Luhn check’s equivalent
+modulo expression with that standard method, without suppressing warnings or changing policy.
 
 The lockfile adds/updates 57 Rust registry package versions. Their downloaded crate files
 match every committed registry checksum. Runtime/UI dependencies change, so native compilation
