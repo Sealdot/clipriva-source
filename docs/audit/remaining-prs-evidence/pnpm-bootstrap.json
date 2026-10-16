@@ -1,0 +1,18 @@
+{
+  "version": "11.28.6",
+  "license": "MIT",
+  "registry_integrity": "sha512-VdkDkMOzkELxUFoml3ifAlbG2Vuyi918tzGvGIfJ8mKe9YGsufTk7HcgJMggPCrtIqAymblxA/3PMmaOkF0AJA==",
+  "registry_integrity_matches": true,
+  "runtime": "Node.js >=22.13",
+  "scope": "Isolated CI tooling only, not an application dependency; npm ci verifies the committed integrity; no install scripts.",
+  "audit_vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "replaced_version": "11.9.0",
+  "replaced_audit_high_count": 1
+}

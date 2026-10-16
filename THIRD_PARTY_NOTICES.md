@@ -99,3 +99,34 @@ CI updates `actions/upload-artifact` from v4.6.2 to v7.0.2, pinned to
 tooling, with unchanged evidence paths, retention and permissions. It is not shipped in the
 application. The [upstream license](https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/LICENSE)
 and the [focused review](docs/audit/dependency-prs-17-22-review-2026-10-16.md) record provenance.
+
+## Remaining PRs dependency and CI review (2026-10-16)
+
+The resolved native graph updates Tauri to 2.12.1 with build tooling 2.7.1, global-shortcut
+to 2.4.0, mdns-sd to 0.21.5, sha2 to 0.11.0, x25519-dalek to 3.0.0 and tokio to 1.53.2.
+The [component reports](docs/audit/remaining-prs-review-2026-10-16.md) retain declarations
+and verify the checksums of all 57 added/updated crate downloads. No dependency source or
+binary is vendored. Synthetic compatibility fixtures are project-authored, use repeated-byte
+test input and derive their expected values with the previous dependency versions; they are
+not real device identities, clipboard data or copied third-party application code.
+
+CI reviewed the following MIT-licensed upstream actions; checkout/setup-node remain active,
+while pnpm/action-setup is superseded by the isolated bootstrap described below:
+
+- [actions/checkout v7.0.1](https://github.com/actions/checkout/blob/3d3c42e5aac5ba805825da76410c181273ba90b1/LICENSE).
+- [pnpm/action-setup v6.1.0](https://github.com/pnpm/action-setup/blob/ea17c68df8912ef543352723c149a84f56e3d413/LICENSE.md).
+- [actions/setup-node v7.1.0](https://github.com/actions/setup-node/blob/949feb2413d6458794dcd2491c4babbbce0c15c1/LICENSE).
+
+The [action provenance](docs/audit/remaining-prs-evidence/action-provenance.json) verifies
+upstream tags (including pnpm's annotated tag), commit pins, license hashes and Node 24 runtime.
+The bilingual README update references only the already-approved project-owned screenshots;
+no image bytes, fonts, logos or separate external assets change. The ClipRiva name/logo and
+[brand policy](TRADEMARK.md) are unchanged. Artifact-specific binary notices remain required.
+
+The remaining-PR CI rerun supersedes pnpm/action-setup after its Intel self-update still fails
+with the pinned Node already active. A separate tools/ci-pnpm npm lockfile now installs only
+MIT-licensed pnpm 11.28.6 from the official registry, verifies locked integrity via npm ci and
+disables install scripts. This replaces the 11.9.0 tool version affected by public high-severity
+advisories. The tool runs under pinned Node and is not vendored or shipped in the application.
+Its [registry/license/audit record](docs/audit/remaining-prs-evidence/pnpm-bootstrap.json) is
+separate from the unchanged application dependency graph.

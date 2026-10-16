@@ -213,4 +213,18 @@ mod tests {
         assert!(!info.get_fullname().contains("Mac"));
         assert!(candidate_id(info.get_fullname()).starts_with("candidate-"));
     }
+
+    #[test]
+    fn enabling_pairing_does_not_add_identity_or_content_to_discovery() {
+        let hidden = service_info("ll-synthetic", "ll-synthetic.local.", 42_000, false).unwrap();
+        let visible = service_info("ll-synthetic", "ll-synthetic.local.", 42_000, true).unwrap();
+        assert_eq!(visible.get_properties().iter().count(), 2);
+        assert_eq!(visible.get_property_val_str("v"), Some("3"));
+        assert_eq!(visible.get_property_val_str("pair"), Some("1"));
+        assert_eq!(visible.get_fullname(), hidden.get_fullname());
+        assert_eq!(
+            candidate_id(visible.get_fullname()),
+            candidate_id(hidden.get_fullname())
+        );
+    }
 }

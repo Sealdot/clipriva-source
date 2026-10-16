@@ -300,3 +300,14 @@ introduces or changes a network path, discovery field, account, telemetry, sync,
 export, stored data type, key lifecycle, deletion/retention rule or OS permission. Implementation,
 tests and physical evidence must support every “local”, “encrypted”, “memory-only” and “no cloud”
 claim.
+
+## Dependency compatibility review (2026-10-16)
+
+The Tauri 2.12.1, mdns-sd 0.21.5, x25519-dalek 3.0.0 and sha2 0.11.0 updates preserve
+the existing data boundaries. Local Link remains disabled until explicit consent; discovery
+logging remains disabled and its advertisement contains only random routing labels plus the
+protocol and pairing flags. Discovery is not a trust anchor. Noise parameters, the version-1
+Keychain identity format and protection settings, and fingerprint encoding do not change.
+Synthetic compatibility tests check existing identity bytes and content-addressed blob keys.
+No migration, new permission, stored data type, telemetry, cloud route or export is introduced.
+Unit tests and source builds do not replace the existing two-real-Mac release gates.

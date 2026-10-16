@@ -233,3 +233,18 @@ acceptance cases are maintained in
 
 The cross-repository security assumptions and test/gate mapping are in
 [`docs/security/THREAT_MODEL.md`](../security/THREAT_MODEL.md).
+
+## 2026-10-16 dependency compatibility review
+
+The native dependency updates do not add a data-flow edge. mdns-sd 0.21.5 retains explicit
+`default-features = false` with only `async`; logging and serde features are not enabled.
+The existing default-off consent gate still owns listener/discovery startup and shutdown.
+Tests check that both pairing advertisement states expose only `v` and `pair`, without
+identity or content, and retain the disabled-readiness/no-transport invariant.
+
+The x25519-dalek 3 upgrade validates existing version-1 identity bytes against a synthetic
+fixture derived by the previous dependency versions. SHA-256 now has an explicit lowercase
+hex encoder because sha2 0.11 removed digest-formatting support; content-addressed blob
+paths, duplicate hashes, streaming representation hashes and public fingerprints retain
+their encodings. No data is migrated, re-keyed, exported or sent to a new destination.
+Existing native, lifecycle and two-Mac acceptance limits still apply.

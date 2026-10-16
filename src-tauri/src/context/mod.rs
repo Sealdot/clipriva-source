@@ -479,7 +479,7 @@ fn passes_luhn(digits: &str) -> bool {
         }
         sum += value;
     }
-    sum % 10 == 0
+    sum.is_multiple_of(10)
 }
 
 fn find_api_key_spans(content: &str) -> Vec<SensitiveSpan> {

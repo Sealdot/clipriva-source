@@ -121,3 +121,15 @@ Local Link is evaluated separately by
 [`docs/release/local-link-ga-evidence-gate.md`](../release/local-link-ga-evidence-gate.md). Until
 that gate is fully evidenced and approved, its acceptance status is Preview / No-Go regardless of
 P0-P2 repository test results.
+
+## Dependency compatibility regressions (2026-10-16)
+
+The remaining-PR integration adds native regressions for stable lowercase SHA-256 vectors,
+zero padding, streaming digest equivalence, pre-upgrade blob addresses after reopen, and a
+synthetic version-1 Local Link identity/fingerprint derived with the previous libraries.
+Both pairing advertisement states must expose only protocol/pairing TXT fields. Existing
+disabled-readiness, policy, authenticated pairing, revocation and cleanup tests remain gates.
+
+Run the full native/frontend suites and five-runner native build matrix on the final combined
+commit. Builds and synthetic compatibility regressions do not establish native focus/paste,
+permission/reinstall behaviour, signed-binary readiness or real two-Mac acceptance.

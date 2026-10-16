@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/macos-compatibility.yml"
+      - "tools/ci-pnpm/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "rust-toolchain.toml"
@@ -14,6 +15,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/macos-compatibility.yml"
+      - "tools/ci-pnpm/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "rust-toolchain.toml"
@@ -57,14 +59,22 @@ jobs:
       MACOSX_DEPLOYMENT_TARGET: "13.0"
     steps:
       - name: Check out source
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-      - name: Set up pnpm
-        uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Set up Node.js
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
-          cache: pnpm
+      - name: Set up pinned pnpm
+        shell: bash
+        run: |
+          set -euo pipefail
+          bootstrap="$RUNNER_TEMP/clipriva-ci-pnpm"
+          mkdir -p "$bootstrap"
+          cp tools/ci-pnpm/package.json tools/ci-pnpm/package-lock.json "$bootstrap/"
+          npm ci --prefix "$bootstrap" --ignore-scripts --registry=https://registry.npmjs.org
+          node -e 'const fs = require("node:fs"); const expected = require("./package.json").packageManager; const actual = "pnpm@" + JSON.parse(fs.readFileSync(process.argv[1])).version; if (actual !== expected) throw new Error("CI pnpm pin mismatch");' "$bootstrap/node_modules/pnpm/package.json"
+          printf '%s\n' "$bootstrap/node_modules/.bin" >> "$GITHUB_PATH"
+          "$bootstrap/node_modules/.bin/pnpm" --version
       - name: Install frontend dependencies
         run: pnpm install --frozen-lockfile
       - name: Build frontend
