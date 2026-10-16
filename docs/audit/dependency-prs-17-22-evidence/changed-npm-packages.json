@@ -1,0 +1,137 @@
+{
+  "baseline": "ce4478bbebb4e73ae57e158c7bebcce8da54b7bf",
+  "added_or_updated": [
+    {
+      "name": "@babel/runtime",
+      "version": "7.29.10",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==",
+      "metadata_url": "https://registry.npmjs.org/%40babel%2Fruntime/7.29.10",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    {
+      "name": "@tauri-apps/api",
+      "version": "2.12.3",
+      "license": "Apache-2.0 OR MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-9s0PKw0p4r3kFq92jhpivYSp+cSht15o0gXpZxuQd0+dV9KCexEVkNaLELVoLdJWyoH4KlfQo5h3W2LIM8siJg==",
+      "metadata_url": "https://registry.npmjs.org/%40tauri-apps%2Fapi/2.12.3",
+      "engines": {}
+    },
+    {
+      "name": "@tauri-apps/plugin-clipboard-manager",
+      "version": "2.4.2",
+      "license": "MIT OR Apache-2.0",
+      "integrity_matches": true,
+      "integrity": "sha512-bpQ6ONK2jcCVraBVtazdQ2X7bRK6P/vdi+D4jFDOJ9IbqR4cC8D6K3YGHR+c+cgZf2HQOE7hBEkRlybEVnCNPg==",
+      "metadata_url": "https://registry.npmjs.org/%40tauri-apps%2Fplugin-clipboard-manager/2.4.2",
+      "engines": {}
+    },
+    {
+      "name": "@testing-library/jest-dom",
+      "version": "7.0.1",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-oMDTC3oA+6CXSO2JZnvOI7CA6oVub6kij5ggk9ohwye5slmkwxYDXcPOVxgMw/RQlticjtO0C1RZkR97HgrWMw==",
+      "metadata_url": "https://registry.npmjs.org/%40testing-library%2Fjest-dom/7.0.1",
+      "engines": {
+        "npm": ">=6",
+        "node": ">=22",
+        "yarn": ">=1"
+      }
+    },
+    {
+      "name": "@types/node",
+      "version": "26.6.5",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==",
+      "metadata_url": "https://registry.npmjs.org/%40types%2Fnode/26.6.5",
+      "engines": {}
+    },
+    {
+      "name": "@vitest/mocker",
+      "version": "5.0.4",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-tqAlrYWce4iUxhr3ncNohejtCTOcHeE8XWrSNZY3OhPoDn01yeGv+gnaBy64ATp7o6pb03eIbBAjzmibpc9vIQ==",
+      "metadata_url": "https://registry.npmjs.org/%40vitest%2Fmocker/5.0.4",
+      "engines": {}
+    },
+    {
+      "name": "@vitest/spy",
+      "version": "5.0.4",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-MZKk/gSkm2q+ICobMxCpH1mA+cCAWm8WV7UhxlqGjq/sJ3AGc1BqFOs5CRVXxH78wQtme9q/NAAgBquj4AcyMw==",
+      "metadata_url": "https://registry.npmjs.org/%40vitest%2Fspy/5.0.4",
+      "engines": {}
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.55.0",
+      "license": "ISC",
+      "integrity_matches": true,
+      "integrity": "sha512-bSozQHiI3/8q7JvgoqVRGOYUi7fYT3siAZwmZsljjsOH2Husp/2ODdFf/leD+ZC/2yKfn7r8oh6yeoR3ITR5vA==",
+      "metadata_url": "https://registry.npmjs.org/lucide-react/1.55.0",
+      "engines": {}
+    },
+    {
+      "name": "obug",
+      "version": "3.0.0",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-5vvB5+W7ePv+p3uqxi+RcW1XAzLW0/hxt3/4X4Lc4qHudzOhmBiBwOY6DRob4WnanAEGvNcLjF+KNOufrUoEQw==",
+      "metadata_url": "https://registry.npmjs.org/obug/3.0.0",
+      "engines": {
+        "node": ">=12.20.0"
+      }
+    },
+    {
+      "name": "tinybench",
+      "version": "6.2.2",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-nIZ2N2dFpjBsg2hgitKu7mA+FvsIJuGJOwysRngmVRRmWgR/UyPjwJj8c/fT/dhm8EkHnF5EOogRf+0Z2qrimA==",
+      "metadata_url": "https://registry.npmjs.org/tinybench/6.2.2",
+      "engines": {
+        "node": ">=20.0.0"
+      }
+    },
+    {
+      "name": "undici-types",
+      "version": "8.9.0",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==",
+      "metadata_url": "https://registry.npmjs.org/undici-types/8.9.0",
+      "engines": {}
+    },
+    {
+      "name": "vitest",
+      "version": "5.0.4",
+      "license": "MIT",
+      "integrity_matches": true,
+      "integrity": "sha512-z0WxZRV2Sg48wF0FSgMq3TFG8JS38/Qr96vZVZdX6+Em9raQTvnXQvdTFJe2m3rfyJnEHeHQ/snceIdi8D1pVg==",
+      "metadata_url": "https://registry.npmjs.org/vitest/5.0.4",
+      "engines": {
+        "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+      }
+    }
+  ],
+  "removed": [
+    "@tauri-apps/plugin-clipboard-manager@2.3.2",
+    "@testing-library/jest-dom@7.0.0",
+    "@types/node@26.1.1",
+    "@vitest/mocker@5.0.3",
+    "@vitest/spy@5.0.3",
+    "lucide-react@1.26.0",
+    "obug@2.2.1",
+    "tinybench@6.2.0",
+    "undici-types@8.3.0",
+    "vitest@5.0.3"
+  ]
+}

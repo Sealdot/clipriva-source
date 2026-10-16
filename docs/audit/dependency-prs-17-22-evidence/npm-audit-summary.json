@@ -1,0 +1,21 @@
+{
+  "review_date": "2026-10-16",
+  "dependency_commit": "0856c02060ee7a4f37b73dfbb7f31544f90ad847",
+  "registry": "https://registry.npmjs.org",
+  "scopes": {
+    "all_dependencies": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "production_only": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    }
+  }
+}

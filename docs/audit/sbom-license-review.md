@@ -1,5 +1,17 @@
 # SBOM and transitive-license review
 
+## PRs #17–#22 combined rerun (2026-10-16)
+
+[The combined review](dependency-prs-17-22-review-2026-10-16.md) records fresh installed
+Node metadata (117 components), macOS ARM64 Rust (317 registry components) and all-platform
+Rust (518 registry components). All reviewed graphs have zero missing, unsupported or
+restricted-without-permissive-alternative declarations. All 12 added/updated npm versions
+match official registry integrity values and declare MIT, ISC or Apache-2.0/MIT alternatives.
+Lucide’s installed license also retains the MIT notice for Feather-derived icons; preserve
+both notices when redistributing them. Both all-platform r-efi entries retain permissive
+alternatives to LGPL. Full and production-only npm audits have zero findings. Rust code and
+lockfile are unchanged; prior per-PR CI RustSec warnings remain separate historical evidence.
+
 ## JSDOM 30.1.2 rerun (2026-10-09)
 
 [The PR #11 review](jsdom-30.1.2-review-2026-10-09.md) records fresh installed Node
