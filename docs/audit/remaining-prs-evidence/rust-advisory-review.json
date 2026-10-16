@@ -1,0 +1,30 @@
+{
+  "commit": "3328b7ea5bd33beffffb608d358b7ad6e0691109",
+  "target": "aarch64-apple-darwin",
+  "database": {
+    "advisory-count": 1329,
+    "last-commit": null,
+    "last-updated": null
+  },
+  "vulnerabilities": 0,
+  "warnings": [
+    {
+      "advisory": "RUSTSEC-2024-0370",
+      "package": "proc-macro-error",
+      "version": "1.0.4",
+      "kind": "unmaintained",
+      "reachable_on_runner_target": false,
+      "decision": "Reviewed transitive maintenance risk; no patched version in advisory. Track upstream; frozen source preview only."
+    },
+    {
+      "advisory": "RUSTSEC-2024-0429",
+      "package": "glib",
+      "version": "0.18.5",
+      "kind": "unsound",
+      "reachable_on_runner_target": false,
+      "decision": "glib 0.18.5 is absent from the macOS target graph; unsupported Linux GTK graph only. Linux use requires remediation."
+    }
+  ],
+  "ignored_advisories": [],
+  "complete": true
+}

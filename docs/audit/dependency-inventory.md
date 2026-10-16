@@ -1,5 +1,10 @@
 # Dependency and license inventory
 
+Remaining-PR update (2026-10-16): Tauri 2.12.1 / build tooling 2.7.1, global-shortcut
+2.4.0, mdns-sd 0.21.5, sha2 0.11.0, x25519-dalek 3.0.0 and tokio 1.53.2. The runtime
+and plugin graph requires Rust 1.90; validation remains pinned to 1.97.1. See the
+[compatibility review and fresh evidence](remaining-prs-review-2026-10-16.md).
+
 PRs #17–#22 review (2026-10-16): five direct npm dependencies update as listed below;
 Rust dependencies are unchanged. See the [combined review and fresh component evidence](dependency-prs-17-22-review-2026-10-16.md).
 
@@ -60,7 +65,7 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | --- | --- | --- | --- | --- | --- |
 | `block2` | 0.6.2 | Own the copied Objective-C block used by the macOS Network.framework Local Link path monitor callback | MIT | Yes, macOS | Low; already present in the locked transitive graph, now explicit because production code uses its API directly |
 | `chrono` | 0.4.45 | Time handling | MIT OR Apache-2.0 | Yes | Low |
-| `mdns-sd` | 0.20.3 | Native allow-listed Bonjour/mDNS discovery for explicitly enabled Local Link | Apache-2.0 OR MIT | Yes | Medium; network-boundary code, default-off Preview/Alpha and real-Mac gate required |
+| `mdns-sd` | 0.21.5 | Native allow-listed Bonjour/mDNS discovery for explicitly enabled Local Link | Apache-2.0 OR MIT | Yes | Medium; network-boundary code, default-off Preview/Alpha and real-Mac gate required |
 | `objc2` | 0.6.4 | macOS Objective-C bindings | MIT | Yes, macOS | Low |
 | `objc2-app-kit` | 0.3.2 | macOS AppKit bindings | MIT | Yes, macOS | Low |
 | `objc2-foundation` | 0.3.2 | macOS Foundation bindings | MIT | Yes, macOS | Low |
@@ -68,18 +73,18 @@ See [the public preview record](source-public-preview-2026-10-08.md).
 | `rusqlite` | 0.37.0 | SQLite persistence | MIT | Yes | Low |
 | `serde` | 1.0.229 | Serialization | MIT OR Apache-2.0 | Yes | Low |
 | `serde_json` | 1.0.151 | JSON serialization | MIT OR Apache-2.0 | Yes | Low |
-| `sha2` | 0.10.9 | Content hashing | MIT OR Apache-2.0 | Yes | Low |
+| `sha2` | 0.11.0 | Content hashing | MIT OR Apache-2.0 | Yes | Low |
 | `snow` | 0.10.0 | Noise XX handshake and encrypted framing for explicitly paired Local Link peers | Apache-2.0 OR MIT | Yes | Medium; security-critical protocol code, loopback is not real-Mac evidence |
 | `subtle` | 2.6.1 | Constant-time comparison for identity/fingerprint validation | BSD-3-Clause | Yes | Medium; security-sensitive comparison primitive |
-| `tauri` | 2.11.5 | Desktop runtime | MIT OR Apache-2.0 | Yes | Low |
-| `tauri-build` | 2.6.3 | Tauri build integration | MIT OR Apache-2.0 | Yes, build | Low |
+| `tauri` | 2.12.1 | Desktop runtime | MIT OR Apache-2.0 | Yes | Low |
+| `tauri-build` | 2.7.1 | Tauri build integration | MIT OR Apache-2.0 | Yes, build | Low |
 | `tauri-plugin-autostart` | 2.5.1 | Optional launch-at-login | MIT OR Apache-2.0 | Yes | Low |
 | `tauri-plugin-clipboard-manager` | 2.3.2 | Native clipboard integration | MIT OR Apache-2.0 | Yes | Low |
-| `tauri-plugin-global-shortcut` | 2.3.2 | Global shortcut support | MIT OR Apache-2.0 | Yes | Low |
+| `tauri-plugin-global-shortcut` | 2.4.0 | Global shortcut support | MIT OR Apache-2.0 | Yes | Low |
 | `thiserror` | 2.0.19 | Error definitions | MIT OR Apache-2.0 | Yes | Low |
-| `tokio` | 1.53.1 | Async runtime | MIT | Yes | Low |
+| `tokio` | 1.53.2 | Async runtime | MIT | Yes | Low |
 | `uuid` | 1.24.0 | Local identifiers | MIT OR Apache-2.0 | Yes | Low |
-| `x25519-dalek` | 2.0.1 | X25519 static-key generation and public-key derivation for the candidate identity | BSD-3-Clause | Yes | Medium; security-critical identity primitive |
+| `x25519-dalek` | 3.0.0 | X25519 static-key generation and public-key derivation for the candidate identity | BSD-3-Clause | Yes | Medium; security-critical identity primitive |
 | `zeroize` | 1.9.0 | Clear owned Local Link identity and pending-plaintext buffers on drop | Apache-2.0 OR MIT | Yes | Medium; best-effort secret-buffer hygiene, not a platform memory guarantee |
 | `security-framework` | 3.7.0 | Store the versioned Local Link identity in macOS Keychain | MIT OR Apache-2.0 | Yes, macOS | Medium; OS credential-store lifecycle and accessibility require real-Mac review |
 

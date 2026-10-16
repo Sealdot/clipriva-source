@@ -1,0 +1,461 @@
+{
+  "baseline": "17ec4c17a43d210cb31bf0bdc9b5e5e16e9a605d",
+  "added_or_updated": [
+    {
+      "name": "alloc-no-stdlib",
+      "version": "3.0.0",
+      "license": "BSD-3-Clause",
+      "checksum": "c2fb6cfd47bf496ff64095c20eaba0c201404ee38714d4142fcfa1dc334fcc7a",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/alloc-no-stdlib/3.0.0"
+    },
+    {
+      "name": "alloc-stdlib",
+      "version": "0.3.0",
+      "license": "BSD-3-Clause",
+      "checksum": "0b5c1865780388bfa186411ab5f247819487fc4864c6e9c3106611fa347586e1",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/alloc-stdlib/0.3.0"
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.12.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "d2f6c7dbe95a6ed67ad9f18e57daf93a2f034c524b99fd2b76d18fdfeb6660aa",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/block-buffer/0.12.1"
+    },
+    {
+      "name": "brotli",
+      "version": "9.0.0",
+      "license": "BSD-3-Clause AND MIT",
+      "checksum": "f8b851b75c23ca7873623d612fe49bd1989aeb03d08fb9432187eb253d3d4c6b",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/brotli/9.0.0"
+    },
+    {
+      "name": "brotli-decompressor",
+      "version": "6.0.1",
+      "license": "BSD-3-Clause/MIT",
+      "checksum": "941cd9bd4ddab83cb46fa5a2d428f1c857b24ac78cb876cf7beb710840934bd7",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/brotli-decompressor/6.0.1"
+    },
+    {
+      "name": "cargo_toml",
+      "version": "1.0.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "82f4b26e751e711a5302649417f2da046dce6391b2ea30a4820f37462314f0b9",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/cargo_toml/1.0.1"
+    },
+    {
+      "name": "cfb",
+      "version": "0.14.0",
+      "license": "MIT",
+      "checksum": "a347dcabdae9c31b0825fd6a8bed285ec9c2acb89c47827126d52fa4f59cece3",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/cfb/0.14.0"
+    },
+    {
+      "name": "const-oid",
+      "version": "0.10.2",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "a6ef517f0926dd24a1582492c791b6a4818a4d94e789a334894aa15b0d12f55c",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/const-oid/0.10.2"
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.3.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "5ca28b0ae3115b884660db4118d803791fd6756b6e88f39c0f3f7859060d7566",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/cpufeatures/0.3.1"
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.2.2",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "ce6e4c961d6cd6c9a86db418387425e8bdeaf05b3c8bc1411e6dca4c252f1453",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/crypto-common/0.2.2"
+    },
+    {
+      "name": "cssparser",
+      "version": "0.37.0",
+      "license": "MPL-2.0",
+      "checksum": "8c9cdaae01d5ed7882b04d795e7f752f46ff52d2fa3b50a20d28c464510bba98",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/cssparser/0.37.0"
+    },
+    {
+      "name": "cssparser-macros",
+      "version": "0.7.1",
+      "license": "MPL-2.0",
+      "checksum": "d045de693cb712d0b22c6a64be5b953f67b3ce00ab5ad3dd5d8b441886ab8e1a",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/cssparser-macros/0.7.1"
+    },
+    {
+      "name": "ctor",
+      "version": "1.0.13",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "914a755b7c2d4af2bdcff7ce1739e2db9a1b81a9b07123d8015786ae03c0980d",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/ctor/1.0.13"
+    },
+    {
+      "name": "curve25519-dalek",
+      "version": "5.0.0",
+      "license": "BSD-3-Clause",
+      "checksum": "b5eed333089e2e1c1ac8c6c0398e5e2497b4c9926ca6d0365ed1e099afa5bc23",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/curve25519-dalek/5.0.0"
+    },
+    {
+      "name": "digest",
+      "version": "0.11.3",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "f1dd6dbb5841937940781866fa1281a1ff7bd3bf827091440879f9994983d5c2",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/digest/0.11.3"
+    },
+    {
+      "name": "dirs",
+      "version": "7.0.0",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "8d57d423b3c82e89b9a24ca3091fee61f456a26edbd28d26c65906f4bc1dcd8f",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/dirs/7.0.0"
+    },
+    {
+      "name": "dom_query",
+      "version": "0.28.0",
+      "license": "MIT",
+      "checksum": "fac5fca71e65e94cc718a6e2af65d6e0f9c6027751c2aa562fbb5087fda639bc",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/dom_query/0.28.0"
+    },
+    {
+      "name": "fiat-crypto",
+      "version": "0.3.0",
+      "license": "MIT OR Apache-2.0 OR BSD-1-Clause",
+      "checksum": "64cd1e32ddd350061ae6edb1b082d7c54915b5c672c389143b9a63403a109f24",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/fiat-crypto/0.3.0"
+    },
+    {
+      "name": "html5ever",
+      "version": "0.39.0",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "46a1761807faccc9a19e86944bbf40610014066306f96edcdedc2fb714bcb7b8",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/html5ever/0.39.0"
+    },
+    {
+      "name": "hybrid-array",
+      "version": "0.4.15",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "27f864f10dfb56725ce5ce5472bc52252c8f93a4ab86327122cebf62c5f59a17",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/hybrid-array/0.4.15"
+    },
+    {
+      "name": "infer",
+      "version": "0.22.0",
+      "license": "MIT",
+      "checksum": "f4200d433cbd5178df7797c9c2e75b348b728e39631cf14520d1e2fc424201f4",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/infer/0.22.0"
+    },
+    {
+      "name": "json-patch",
+      "version": "4.2.0",
+      "license": "MIT/Apache-2.0",
+      "checksum": "7421438de105a0827e44fadd05377727847d717c80ce29a229f85fd04c427b72",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/json-patch/4.2.0"
+    },
+    {
+      "name": "jsonptr",
+      "version": "0.7.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "a5a3cc660ba5d72bce0b3bb295bf20847ccbb40fd423f3f05b61273672e561fe",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/jsonptr/0.7.1"
+    },
+    {
+      "name": "keyboard-types",
+      "version": "0.8.3",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "0fbe853b403ae61a04233030ae8a79d94975281ed9770a1f9e246732b534b28d",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/keyboard-types/0.8.3"
+    },
+    {
+      "name": "markup5ever",
+      "version": "0.39.0",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "7122d987ec5f704ee56f6e5b41a7d93722e9aae27ae07cafa4036c4d3f9757de",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/markup5ever/0.39.0"
+    },
+    {
+      "name": "mdns-sd",
+      "version": "0.21.5",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "127d3355da0615643c88c885e29a1ccb29ca4b1ca1f2e44b3caed2e728a796aa",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/mdns-sd/0.21.5"
+    },
+    {
+      "name": "muda",
+      "version": "0.20.0",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "cca139e57da4383727f189e43e66e84fa372347027fc996f9f1a007ec0a37996",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/muda/0.20.0"
+    },
+    {
+      "name": "ndk-context",
+      "version": "0.1.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "27b02d87554356db9e9a873add8782d4ea6e3e58ea071a9adb9a2e8ddb884a8b",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/ndk-context/0.1.1"
+    },
+    {
+      "name": "rand_core",
+      "version": "0.10.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/rand_core/0.10.1"
+    },
+    {
+      "name": "selectors",
+      "version": "0.38.0",
+      "license": "MPL-2.0",
+      "checksum": "8adfa1c298912827b8a28b223b3b874357397ae706e6190acd9bf28cee99114d",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/selectors/0.38.0"
+    },
+    {
+      "name": "sha2",
+      "version": "0.11.0",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "446ba717509524cb3f22f17ecc096f10f4822d76ab5c0b9822c5f9c284e825f4",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/sha2/0.11.0"
+    },
+    {
+      "name": "swift-rs",
+      "version": "1.0.8",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "e45c444e496845d3f2a351146bff59aae4975b2280238df1dfaa0c7d1846f38e",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/swift-rs/1.0.8"
+    },
+    {
+      "name": "tao",
+      "version": "0.37.1",
+      "license": "Apache-2.0",
+      "checksum": "f37f381f4e048e6cdf038b5705f8cf14ad108279d46eb968140a7b291aba9400",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tao/0.37.1"
+    },
+    {
+      "name": "tao-macros",
+      "version": "0.1.4",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "5f7eeb6d99155545da6150a1795945f16ac9c178deb2a5f2e74d776107bd5849",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tao-macros/0.1.4"
+    },
+    {
+      "name": "tauri",
+      "version": "2.12.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "ed99ee9694a2deb776d91cae48ac7411ddfc89ecae2f9b5041111d8c88f2ace9",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri/2.12.1"
+    },
+    {
+      "name": "tauri-build",
+      "version": "2.7.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "59563ca5b331fd97f27ee9672ec8d36d33bb3c9e2c9f6710a1a5687256052e45",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-build/2.7.1"
+    },
+    {
+      "name": "tauri-codegen",
+      "version": "2.7.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "e50213e463086ecc283d7e9f51c30cc0fd304ad457425158018be26dbf0d0a80",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-codegen/2.7.1"
+    },
+    {
+      "name": "tauri-macros",
+      "version": "2.7.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "8129fb43bb6e0d6b73ad3315cd172beaab17cd28899c594b1b32c80edbbfd99c",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-macros/2.7.1"
+    },
+    {
+      "name": "tauri-plugin",
+      "version": "2.7.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "1140cf34a3b3b836a13103dcab17f18831d5cc3534cbd435dc01a5c6daa65aa2",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-plugin/2.7.1"
+    },
+    {
+      "name": "tauri-plugin-global-shortcut",
+      "version": "2.4.0",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "0bd2e1f725891a1613af8f25bf918ba3357654b0fd3f2d794c0ce76cbdd92ed2",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-plugin-global-shortcut/2.4.0"
+    },
+    {
+      "name": "tauri-runtime",
+      "version": "2.12.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "c2a57a2a9b8c8b7fc00d35b510fe808ded7f9f1b44fc1cdda6aee38632ea5413",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-runtime/2.12.1"
+    },
+    {
+      "name": "tauri-runtime-wry",
+      "version": "2.12.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "7f9e7e0c9f80a5130773cfabb6df4dc924518fb1b2c923726966804634b57d22",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-runtime-wry/2.12.1"
+    },
+    {
+      "name": "tauri-utils",
+      "version": "2.10.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "2ff55a614843b9a3f010f211df637c94df2607175b8d0f6e0f4a7c19e18621ee",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tauri-utils/2.10.1"
+    },
+    {
+      "name": "tokio",
+      "version": "1.53.2",
+      "license": "MIT",
+      "checksum": "e95f91fcc7a621e8b030f6aa23c71fe9838ae2fb4d8118b75602a328f5144044",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tokio/1.53.2"
+    },
+    {
+      "name": "tray-icon",
+      "version": "0.25.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "b2b9c52859a94554803ccd4a24b98f74148ebc73b90676d783f3490b1bff9d72",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/tray-icon/0.25.1"
+    },
+    {
+      "name": "urlpattern",
+      "version": "0.6.0",
+      "license": "MIT",
+      "checksum": "df16f50ef4cc145211879a3867ba757076b25dfee812040dcb0658bd9ae7904b",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/urlpattern/0.6.0"
+    },
+    {
+      "name": "web-time",
+      "version": "1.1.0",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "5a6580f308b1fad9207618087a65c04e7a10bc77e02c8e84e9b00dd4b12fa0bb",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/web-time/1.1.0"
+    },
+    {
+      "name": "webview2-com",
+      "version": "0.39.1",
+      "license": "MIT",
+      "checksum": "3f89fca7a704cee10dcb3654c1dbb8941d1783132f1917358af75bec37a7d7e6",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/webview2-com/0.39.1"
+    },
+    {
+      "name": "webview2-com-sys",
+      "version": "0.39.1",
+      "license": "MIT",
+      "checksum": "b3a07132775117d6065853d9d1178157b8c90e228de47129d6bce2c7edebedfb",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/webview2-com-sys/0.39.1"
+    },
+    {
+      "name": "window-vibrancy",
+      "version": "0.8.1",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "111e51caca442cafd9bab396628ac4d814880eaea4e63dfd76a12e9f342b5580",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/window-vibrancy/0.8.1"
+    },
+    {
+      "name": "windows",
+      "version": "0.62.2",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "527fadee13e0c05939a6a05d5bd6eec6cd2e3dbd648b9f8e447c6518133d8580",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/windows/0.62.2"
+    },
+    {
+      "name": "windows-collections",
+      "version": "0.3.2",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "23b2d95af1a8a14a3c7367e1ed4fc9c20e0a26e79551b1454d72583c97cc6610",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/windows-collections/0.3.2"
+    },
+    {
+      "name": "windows-future",
+      "version": "0.3.2",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "e1d6f90251fe18a279739e78025bd6ddc52a7e22f921070ccdc67dde84c605cb",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/windows-future/0.3.2"
+    },
+    {
+      "name": "windows-numerics",
+      "version": "0.3.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "6e2e40844ac143cdb44aead537bbf727de9b044e107a0f1220392177d15b0f26",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/windows-numerics/0.3.1"
+    },
+    {
+      "name": "windows-threading",
+      "version": "0.2.1",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "3949bd5b99cafdf1c7ca86b43ca564028dfe27d66958f2470940f73d86d75b37",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/windows-threading/0.2.1"
+    },
+    {
+      "name": "wry",
+      "version": "0.57.0",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "a819957a01b3119af85e638a38d242af76dbc87d130dca67bfd0441072e21ff0",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/wry/0.57.0"
+    },
+    {
+      "name": "x25519-dalek",
+      "version": "3.0.0",
+      "license": "BSD-3-Clause",
+      "checksum": "e7e8131a03190127fb2263afc72b322ecadae46b6ff8c6f399ff5d02f5559af6",
+      "download_checksum_matches": true,
+      "source": "https://crates.io/crates/x25519-dalek/3.0.0"
+    }
+  ]
+}
