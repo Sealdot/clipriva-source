@@ -7,7 +7,6 @@
 
 use std::fmt;
 
-use sha2::{Digest, Sha256};
 use tauri::AppHandle;
 use tauri_plugin_clipboard_manager::ClipboardExt;
 
@@ -60,7 +59,7 @@ pub struct CapturedImage {
 
 impl CapturedImage {
     pub fn content_hash(&self) -> String {
-        format!("{:x}", Sha256::digest(&self.png))
+        crate::hashing::sha256_hex(&self.png)
     }
 }
 

@@ -6,6 +6,7 @@ mod commands;
 pub mod context;
 mod db;
 mod error;
+mod hashing;
 mod local_link;
 mod macos_ocr;
 mod media;

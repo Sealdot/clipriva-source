@@ -7,7 +7,6 @@
 use std::collections::HashSet;
 
 use serde::{Deserialize, Serialize};
-use sha2::{Digest, Sha256};
 
 use crate::context::{enrich_text, RedactionPreview};
 use crate::error::{AppError, AppResult};
@@ -360,7 +359,7 @@ pub fn build_local_audit(
 }
 
 pub fn content_hash(content: &str) -> String {
-    format!("{:x}", Sha256::digest(content.as_bytes()))
+    crate::hashing::sha256_hex(content.as_bytes())
 }
 
 #[cfg(test)]

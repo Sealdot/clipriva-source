@@ -213,3 +213,19 @@ The repository-wide asset, attacker, trust-boundary and invariant mapping is mai
 [`docs/security/THREAT_MODEL.md`](../security/THREAT_MODEL.md). Any external security scanner
 remains optional development/release tooling outside the product module boundary and requires
 separate maintainer authorization before source is sent to a service.
+
+## 2026-10-16 dependency boundary review
+
+The global-shortcut 2.4.0 dependency requires Tauri 2.12 and plugin build tooling 2.7; the
+resolved runtime/build graph and declared Rust floor therefore change together. The pinned
+validation toolchain remains Rust 1.97.1. No IPC command or capability is added. CI must
+compile the updated runtime on the existing five OS/architecture combinations.
+
+Local Link keeps mdns-sd defaults/logging/serde off with only async enabled. Its protocol,
+consent gate, allowed TXT metadata, endpoint-memory ownership and cleanup remain unchanged.
+x25519-dalek 3 keeps static-secret verification and zeroization enabled; the unchanged Noise
+implementation still performs transport handshakes. A synthetic legacy identity test checks
+public-key derivation, fingerprint, blob round-trip and mismatch rejection across the upgrade.
+The local hashing helper preserves stored lowercase SHA-256 addresses and representation
+digests; known vectors and reopened BlobStore coverage guard compatibility. These tests do
+not authorize a protocol change or promotion beyond the existing default-off Preview gates.

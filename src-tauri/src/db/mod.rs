@@ -546,7 +546,7 @@ impl Database {
         if content.is_empty() {
             return Ok(None);
         }
-        let content_hash = format!("{:x}", Sha256::digest(content.as_bytes()));
+        let content_hash = crate::hashing::sha256_hex(content.as_bytes());
 
         let id = Self::upsert_exact_clipboard_item_with_connection(
             &connection,
@@ -652,7 +652,7 @@ impl Database {
         let source_app = format!("Local Link from {display_name}");
         let preferences = Self::capture_preferences_with_connection(&transaction)?;
         let saved_at = timestamp();
-        let content_hash = format!("{:x}", Sha256::digest(content.as_bytes()));
+        let content_hash = crate::hashing::sha256_hex(content.as_bytes());
         let item_id = Self::upsert_exact_clipboard_item_with_connection(
             &transaction,
             &preferences,
@@ -1248,7 +1248,7 @@ impl Database {
             representations,
         } = item;
         let content_hash = if is_textual_item_kind(kind) {
-            format!("{:x}", Sha256::digest(content.as_bytes()))
+            crate::hashing::sha256_hex(content.as_bytes())
         } else {
             represented_content_hash(kind, content, representations)
         };
@@ -4519,7 +4519,7 @@ fn represented_content_hash(kind: &str, content: &str, representations: &[Stored
         digest.update([0]);
         digest.update(representation.content_hash.as_bytes());
     }
-    format!("{:x}", digest.finalize())
+    crate::hashing::lower_hex(digest.finalize())
 }
 
 fn normalize_quick_paste_text(value: &str) -> String {
@@ -4781,6 +4781,18 @@ mod tests {
         LocalDiagnosticEventInput, LocalDiagnosticEventType, LocalDiagnosticOutcome,
     };
     use rusqlite::{params, Connection};
+
+    #[test]
+    fn represented_content_keeps_its_pre_upgrade_digest() {
+        assert_eq!(
+            super::represented_content_hash("text", "abc", &[]),
+            "913e2cec540f72fbae8c1ce3c2e393214917f26b602bd937e7b0d1afa11fce12"
+        );
+        assert_ne!(
+            super::represented_content_hash("text", "abc", &[]),
+            super::represented_content_hash("file", "abc", &[])
+        );
+    }
 
     fn enable_labs(database: &Database) {
         let mut preferences = database.capture_preferences().unwrap();

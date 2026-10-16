@@ -5,7 +5,7 @@ description = "ClipRiva desktop runtime"
 license = "Apache-2.0"
 authors = ["Sealdot404"]
 edition = "2021"
-rust-version = "1.85"
+rust-version = "1.90"
 
 [lib]
 name = "clipriva_lib"

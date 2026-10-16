@@ -281,6 +281,28 @@ mod tests {
     }
 
     #[test]
+    fn pre_upgrade_identity_bytes_keep_the_same_public_key_and_fingerprint() {
+        // Repeated-byte synthetic fixture, derived with x25519-dalek 2.0.1 and
+        // sha2 0.10.9. Never use this test key as a real device identity.
+        let legacy_public = [
+            0x13, 0xbe, 0x4f, 0xea, 0xea, 0xf2, 0x04, 0xc7, 0xfd, 0x33, 0x58, 0xfc, 0x9c, 0x00,
+            0x72, 0x18, 0x81, 0xd1, 0x74, 0x27, 0x81, 0x28, 0x22, 0x7e, 0xc6, 0x74, 0xf3, 0x7f,
+            0x7f, 0xe9, 0x7b, 0x6d,
+        ];
+        let mut blob = vec![IDENTITY_BLOB_VERSION];
+        blob.extend_from_slice(&[7; KEY_BYTES]);
+        blob.extend_from_slice(&legacy_public);
+        let identity = LocalIdentity::from_blob(blob.clone()).unwrap();
+        assert_eq!(identity.public_key(), legacy_public);
+        assert_eq!(identity.fingerprint(), "0F6D-2553-FF0C-0F44-7AE2-02ED");
+        assert_eq!(identity.to_blob().as_slice(), blob);
+
+        // The new derivation must still reject an altered stored public key.
+        blob[IDENTITY_BLOB_BYTES - 1] ^= 1;
+        assert!(LocalIdentity::from_blob(blob).is_err());
+    }
+
+    #[test]
     fn malformed_keychain_blob_fails_closed() {
         match LocalIdentity::from_blob(vec![1, 2, 3]) {
             Ok(_) => panic!("malformed identity must fail closed"),

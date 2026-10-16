@@ -15,7 +15,6 @@ use std::path::{Path, PathBuf};
 use std::os::unix::fs::{MetadataExt, OpenOptionsExt, PermissionsExt};
 
 use serde::{Deserialize, Serialize};
-use sha2::{Digest, Sha256};
 use uuid::Uuid;
 
 /// The maximum representation stored automatically for one clipboard item.
@@ -165,7 +164,7 @@ impl BlobStore {
     pub fn store(&self, input: BlobInput<'_>) -> BlobStorageResult<StoredBlob> {
         validate_input(&input)?;
 
-        let content_hash = format!("{:x}", Sha256::digest(input.bytes));
+        let content_hash = crate::hashing::sha256_hex(input.bytes);
         let storage_key = storage_key_for_hash(&content_hash);
         let path = self.path_for_key(&storage_key)?;
 
@@ -274,7 +273,7 @@ impl BlobStore {
                 maximum,
             });
         }
-        let actual_hash = format!("{:x}", Sha256::digest(&bytes));
+        let actual_hash = crate::hashing::sha256_hex(&bytes);
         if actual_hash != expected_hash {
             return Err(BlobStorageError::IntegrityMismatch);
         }
@@ -501,8 +500,6 @@ mod tests {
     #[cfg(unix)]
     use std::os::unix::net::UnixListener;
 
-    use sha2::Digest;
-
     use super::{
         ensure_same_file_identity, BlobInput, BlobKind, BlobStorageError, BlobStore,
         ImageDimensions, MAX_AUTOMATIC_BLOB_BYTES,
@@ -529,6 +526,20 @@ mod tests {
                 bytes,
             })
             .unwrap()
+    }
+
+    #[test]
+    fn pre_upgrade_content_address_remains_readable_after_reopening() {
+        let (store, root) = test_store();
+        let legacy_key = "sha256/ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad";
+        let stored = store_file_blob(&store, b"abc");
+        assert_eq!(stored.storage_key, legacy_key);
+        drop(store);
+        let reopened = BlobStore::open(&root).unwrap();
+        assert_eq!(reopened.read(legacy_key).unwrap(), b"abc");
+        let deduplicated = store_file_blob(&reopened, b"abc");
+        assert_eq!(deduplicated.storage_key, legacy_key);
+        fs::remove_dir_all(root).unwrap();
     }
 
     #[test]
@@ -677,7 +688,7 @@ mod tests {
     fn rejects_directories_instead_of_reading_or_overwriting_them() {
         let (store, root) = test_store();
         let bytes = b"synthetic directory collision";
-        let hash = format!("{:x}", sha2::Sha256::digest(bytes));
+        let hash = crate::hashing::sha256_hex(bytes);
         let storage_key = format!("sha256/{hash}");
         let path = path_for_stored_blob(&root, &storage_key);
         fs::create_dir_all(&path).unwrap();
@@ -703,7 +714,7 @@ mod tests {
         let root = std::path::PathBuf::from("/tmp").join(format!("cr-{}", &random[..8]));
         let store = BlobStore::open(&root).unwrap();
         let symlink_bytes = b"synthetic symlink collision";
-        let symlink_hash = format!("{:x}", sha2::Sha256::digest(symlink_bytes));
+        let symlink_hash = crate::hashing::sha256_hex(symlink_bytes);
         let symlink_key = format!("sha256/{symlink_hash}");
         let symlink_path = path_for_stored_blob(&root, &symlink_key);
         fs::create_dir_all(symlink_path.parent().unwrap()).unwrap();
@@ -722,7 +733,7 @@ mod tests {
         assert_eq!(fs::read(&target).unwrap(), b"target sentinel");
 
         let socket_bytes = b"synthetic socket collision";
-        let socket_hash = format!("{:x}", sha2::Sha256::digest(socket_bytes));
+        let socket_hash = crate::hashing::sha256_hex(socket_bytes);
         let socket_key = format!("sha256/{socket_hash}");
         let socket_path = path_for_stored_blob(&root, &socket_key);
         fs::create_dir_all(socket_path.parent().unwrap()).unwrap();
